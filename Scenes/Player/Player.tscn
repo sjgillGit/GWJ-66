@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://blnork1vhf7o4"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qtn2k"]
+[ext_resource type="Script" path="res://Scripts/Player/MovementController.gd" id="1_rmcqe"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a2fc1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isjan"]
+albedo_color = Color(0.337255, 0.596078, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iinrg"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00672, 0)
+script = ExtResource("1_qtn2k")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_a2fc1")
+surface_material_override/0 = SubResource("StandardMaterial3D_isjan")
+
+[node name="Shape" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_iinrg")
+
+[node name="NavAgent" type="NavigationAgent3D" parent="."]
+target_desired_distance = 5.0
+
+[node name="MovementController" type="Node3D" parent="."]
+script = ExtResource("1_rmcqe")
