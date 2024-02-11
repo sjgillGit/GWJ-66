@@ -5,9 +5,11 @@ extends Camera3D
 # Tells player where to go by mouse clicking
 #---------------------
 
+class_name CameraController
 
 @export var player: Player
 var player_movement: MovementController
+var is_moving: bool
 
 const RAY_LENGTH = 2000
 
