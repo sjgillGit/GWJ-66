@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmexjlj0ilgtd"]
+
+[ext_resource type="Script" path="res://Main/main.gd" id="1_wnj6j"]
+
+[sub_resource type="PackedScene" id="PackedScene_w4mxi"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_wnj6j")
+world_scenes = Array[PackedScene]([SubResource("PackedScene_w4mxi")])
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="UIs" type="CanvasLayer" parent="."]
