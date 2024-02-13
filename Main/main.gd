@@ -9,7 +9,8 @@ var current_world:Node3D
 func _ready():
 	change_world(world_scenes[0])
 	_connect_world_signals()
-	setup_world([])
+	if current_world:
+		setup_world([])
 
 
 func _connect_world_signals():
@@ -22,7 +23,8 @@ func create_world(new_world:PackedScene):
 
 
 func setup_world(world_objects:Array):
-	current_world.populate_world(world_objects)
+	if current_world.has_method("populate_world"):
+		current_world.populate_world(world_objects)
 
 
 func change_world(new_world:PackedScene):
