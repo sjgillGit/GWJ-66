@@ -1,0 +1,229 @@
+[gd_scene load_steps=8 format=3 uid="uid://c01d5vioi6388"]
+
+[ext_resource type="Script" path="res://Gui/InventoryManager.gd" id="1_jf7g7"]
+[ext_resource type="PackedScene" uid="uid://dx16vew5flo3q" path="res://Gui/InventorySpace.tscn" id="1_ldbpd"]
+[ext_resource type="Texture2D" uid="uid://bkx57xqftgsdu" path="res://Gui/key.png" id="2_qpyab"]
+[ext_resource type="Texture2D" uid="uid://dljhijm71konv" path="res://Gui/banana.png" id="3_ebkam"]
+[ext_resource type="Texture2D" uid="uid://ogrjsdond7nh" path="res://Gui/closeButton.png" id="5_grc37"]
+
+[sub_resource type="Gradient" id="Gradient_qgpkg"]
+colors = PackedColorArray(0.147672, 0.147672, 0.147672, 1, 0.340339, 0.340339, 0.340339, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8wr8p"]
+gradient = SubResource("Gradient_qgpkg")
+fill_from = Vector2(0.362385, 0.0229358)
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchor_left = 0.028
+anchor_top = 0.037
+anchor_right = 0.174
+anchor_bottom = 0.975
+offset_left = -8.256
+offset_top = -7.976
+offset_right = -8.44801
+offset_bottom = 0.200012
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_jf7g7")
+
+[node name="QIbutton" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 247.0
+offset_right = 67.0
+offset_bottom = 339.0
+texture = SubResource("GradientTexture2D_8wr8p")
+
+[node name="QuickInventory" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="QuickInventory"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.101
+anchor_top = 0.402
+anchor_right = 0.101
+anchor_bottom = 0.61
+offset_left = -4.04
+offset_top = -8.08
+offset_right = 177.96
+offset_bottom = 594.6
+
+[node name="InventorySpace2" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
+layout_mode = 2
+anchor_left = 0.097
+anchor_top = 0.415
+anchor_right = 0.097
+anchor_bottom = 0.415
+offset_left = 32.12
+offset_top = 7.4
+offset_right = 128.12
+offset_bottom = 105.4
+inventoryTag = "key"
+quickInventorySlot = true
+itemImageTexutre = ExtResource("2_qpyab")
+itemSilhouetteTexture = ExtResource("2_qpyab")
+
+[node name="InventorySpace" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
+layout_mode = 2
+anchor_left = 0.097
+anchor_top = 0.463
+anchor_right = 0.097
+anchor_bottom = 0.463
+offset_left = 32.12
+offset_top = 123.56
+offset_right = 128.12
+offset_bottom = 219.56
+inventoryTag = "banana"
+quickInventorySlot = true
+itemImageTexutre = ExtResource("3_ebkam")
+itemSilhouetteTexture = ExtResource("3_ebkam")
+
+[node name="InventorySpace3" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
+layout_mode = 2
+anchor_left = 0.097
+anchor_top = 0.5
+anchor_right = 0.097
+anchor_bottom = 0.5
+offset_left = 32.12
+offset_top = 240.6
+offset_right = 128.12
+offset_bottom = 336.6
+quickInventorySlot = true
+
+[node name="InventorySpace4" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
+layout_mode = 2
+anchor_left = 0.097
+anchor_top = 0.537
+anchor_right = 0.097
+anchor_bottom = 0.537
+offset_left = 32.12
+offset_top = 357.64
+offset_right = 128.12
+offset_bottom = 453.64
+quickInventorySlot = true
+
+[node name="InventorySpace5" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
+layout_mode = 2
+anchor_left = 0.097
+anchor_top = 0.598
+anchor_right = 0.097
+anchor_bottom = 0.598
+offset_left = 32.12
+offset_top = 472.76
+offset_right = 128.12
+offset_bottom = 568.76
+quickInventorySlot = true
+
+[node name="CloseQuickInventory" type="TextureButton" parent="QuickInventory"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 16.0
+offset_right = 171.0
+offset_bottom = 38.0
+texture_normal = ExtResource("5_grc37")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Normal" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Normal"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 105.0
+offset_top = 55.0
+offset_right = 987.0
+offset_bottom = 580.0
+
+[node name="InventorySpaces" type="Control" parent="Normal/Panel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CloseInventory" type="TextureButton" parent="Normal/Panel/InventorySpaces"]
+layout_mode = 0
+offset_left = 851.0
+offset_top = 9.0
+offset_right = 873.0
+offset_bottom = 31.0
+texture_normal = ExtResource("5_grc37")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="InventorySpace" parent="Normal/Panel/InventorySpaces" instance=ExtResource("1_ldbpd")]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 21.0
+offset_right = 137.0
+offset_bottom = 122.0
+inventoryTag = "banana"
+itemImageTexutre = ExtResource("3_ebkam")
+itemSilhouetteTexture = ExtResource("3_ebkam")
+
+[node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 114.0
+offset_right = 102.0
+offset_bottom = 139.0
+bbcode_enabled = true
+text = "[center]Banana[/center]"
+
+[node name="InventorySpace2" parent="Normal/Panel/InventorySpaces" instance=ExtResource("1_ldbpd")]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 21.0
+offset_right = 265.0
+offset_bottom = 122.0
+inventoryTag = "key"
+itemImageTexutre = ExtResource("2_qpyab")
+itemSilhouetteTexture = ExtResource("2_qpyab")
+
+[node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace2"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 114.0
+offset_right = 78.0
+offset_bottom = 139.0
+bbcode_enabled = true
+text = "Key"
+
+[node name="ItemDescription" type="Panel" parent="Normal/Panel"]
+self_modulate = Color(0.196078, 0.196078, 0.196078, 1)
+layout_mode = 0
+offset_left = 594.0
+offset_top = 35.0
+offset_right = 855.0
+offset_bottom = 486.0
+
+[node name="ItemName" type="RichTextLabel" parent="Normal/Panel/ItemDescription"]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 259.0
+offset_bottom = 62.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]NAME HERE[/center]"
+
+[node name="ItemDescription" type="RichTextLabel" parent="Normal/Panel/ItemDescription"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 109.0
+offset_right = 249.0
+offset_bottom = 404.0
+text = "description or notes or whatever."
+
+[connection signal="mouse_entered" from="QIbutton" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_entered" from="QuickInventory/Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="QuickInventory/Panel" to="." method="_on_panel_mouse_exited"]
+[connection signal="pressed" from="QuickInventory/CloseQuickInventory" to="." method="_on_close_quick_inventory_pressed"]
+[connection signal="pressed" from="Normal/Panel/InventorySpaces/CloseInventory" to="." method="_on_close_inventory_pressed"]

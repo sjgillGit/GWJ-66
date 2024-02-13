@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx16vew5flo3q"]
+
+[ext_resource type="Texture2D" uid="uid://ccihua88finsx" path="res://Gui/Frame.png" id="1_01vgo"]
+[ext_resource type="Script" path="res://Scripts/InventorySpaceScript.gd" id="1_ir1t4"]
+[ext_resource type="Texture2D" uid="uid://d0f0e7xhmrbfk" path="res://icon.svg" id="2_u580y"]
+[ext_resource type="Texture2D" uid="uid://cj3j3d220vbq7" path="res://Gui/Glass.png" id="2_xofmp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gl07w"]
+size = Vector2(76, 76)
+
+[node name="InventorySpace" type="Area2D" groups=["QuickInventorySpot"]]
+position = Vector2(232, 168)
+script = ExtResource("1_ir1t4")
+inventoryTag = null
+itemSprite = ExtResource("2_u580y")
+dragging = null
+
+[node name="Frame" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_gl07w")
+
+[node name="Glass" type="TextureRect" parent="Frame"]
+modulate = Color(1, 1, 1, 0.294118)
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+texture = ExtResource("2_xofmp")
+expand_mode = 1
+
+[node name="FrameImage" type="TextureRect" parent="Frame"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 42.0
+offset_bottom = 42.0
+texture = ExtResource("1_01vgo")
+expand_mode = 1
+
+[node name="ItemSprite" type="Node2D" parent="."]
+position = Vector2(-26, -26)
+
+[node name="Item" type="TextureRect" parent="ItemSprite"]
+offset_right = 56.0
+offset_bottom = 56.0
+texture = ExtResource("2_u580y")
+expand_mode = 1
