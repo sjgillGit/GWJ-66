@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://6ja2fj6oliq"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Option/Option.gd" id="1_7e308"]
+[ext_resource type="PackedScene" uid="uid://o2am6fcvpvvh" path="res://Scenes/UI/VolumeOption/ControlTypes/Volume.tscn" id="2_w46b3"]
+
+[node name="Option" type="HBoxContainer"]
+script = ExtResource("1_7e308")
+control_type = ExtResource("2_w46b3")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Speech volume "

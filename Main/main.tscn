@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmexjlj0ilgtd"]
+[gd_scene load_steps=4 format=3 uid="uid://cmexjlj0ilgtd"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_wnj6j"]
+[ext_resource type="PackedScene" uid="uid://c1pjos5dt4os7" path="res://Scenes/UI/Settings.tscn" id="2_tx6qg"]
 
 [sub_resource type="PackedScene" id="PackedScene_w4mxi"]
 
@@ -11,3 +12,5 @@ world_scenes = Array[PackedScene]([SubResource("PackedScene_w4mxi")])
 [node name="World" type="Node3D" parent="."]
 
 [node name="UIs" type="CanvasLayer" parent="."]
+
+[node name="Settings" parent="UIs" instance=ExtResource("2_tx6qg")]

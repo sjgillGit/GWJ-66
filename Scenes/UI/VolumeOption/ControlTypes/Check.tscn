@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8oxpustjvnhn"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Option/Check/Check.gd" id="1_to4ox"]
+[ext_resource type="PackedScene" uid="uid://3mur87phgqr4" path="res://Scenes/UI/VolumeOption/ControlTypes/Box/Box.tscn" id="2_siepk"]
+
+[node name="Check" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 40
+alignment = 2
+script = ExtResource("1_to4ox")
+
+[node name="Box" parent="." instance=ExtResource("2_siepk")]
+layout_mode = 2
+text = "Voice"
+
+[node name="Box2" parent="." instance=ExtResource("2_siepk")]
+layout_mode = 2
+text = "Text"
+
+[node name="Box3" parent="." instance=ExtResource("2_siepk")]
+layout_mode = 2
+text = "Both"
+
+[node name="Space" type="Control" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
