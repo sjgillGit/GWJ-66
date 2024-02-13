@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dx16vew5flo3q"]
 
-[ext_resource type="Texture2D" uid="uid://ccihua88finsx" path="res://Gui/Frame.png" id="1_01vgo"]
-[ext_resource type="Script" path="res://Scripts/InventorySpaceScript.gd" id="1_ir1t4"]
-[ext_resource type="Texture2D" uid="uid://cj3j3d220vbq7" path="res://Gui/Glass.png" id="2_xofmp"]
+[ext_resource type="Script" path="res://Scripts/Inventory/InventorySpaceScript.gd" id="1_jk7qr"]
+[ext_resource type="Texture2D" uid="uid://cj3j3d220vbq7" path="res://Gui/Images/Glass.png" id="2_vwk3q"]
+[ext_resource type="Texture2D" uid="uid://ccihua88finsx" path="res://Gui/Images/Frame.png" id="3_eqv6s"]
 
 [node name="InventorySpace" type="Panel" groups=["QuickInventorySpot"]]
 offset_right = 99.0
 offset_bottom = 101.0
-script = ExtResource("1_ir1t4")
+script = ExtResource("1_jk7qr")
 
 [node name="Glass" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.294118)
@@ -15,7 +15,7 @@ layout_mode = 2
 offset_right = 100.0
 offset_bottom = 100.0
 mouse_filter = 2
-texture = ExtResource("2_xofmp")
+texture = ExtResource("2_vwk3q")
 expand_mode = 1
 
 [node name="FrameImage" type="TextureRect" parent="."]
@@ -24,7 +24,7 @@ layout_mode = 2
 offset_right = 100.0
 offset_bottom = 100.0
 mouse_filter = 2
-texture = ExtResource("1_01vgo")
+texture = ExtResource("3_eqv6s")
 expand_mode = 1
 
 [node name="ItemSprite" type="Control" parent="."]

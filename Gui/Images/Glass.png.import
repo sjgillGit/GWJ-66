@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ogrjsdond7nh"
-path="res://.godot/imported/closeButton.png-7537bb5a7d31bfecfd0308a11aa7491c.ctex"
+uid="uid://cj3j3d220vbq7"
+path="res://.godot/imported/Glass.png-31dac500f083e16843eb8efb98ca0a7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gui/closeButton.png"
-dest_files=["res://.godot/imported/closeButton.png-7537bb5a7d31bfecfd0308a11aa7491c.ctex"]
+source_file="res://Gui/Images/Glass.png"
+dest_files=["res://.godot/imported/Glass.png-31dac500f083e16843eb8efb98ca0a7f.ctex"]
 
 [params]
 

@@ -34,6 +34,7 @@ func _ready():
 	
 	#Change text if not quick, based on whether known or not
 	if !quickInventorySlot :
+		
 		if hasItemBool || itemUsedBool:
 			itemName.text = "[center]"+inventoryTag+"[/center]"
 		else:
@@ -48,10 +49,10 @@ func _physics_process(delta):
 		
 	#If mouse over and left button held down, as well as having the item. Start dragging, otherwise stop.
 	if hasItemBool == true:
-		if Input.is_action_just_pressed("LeftMouse"):
+		if Input.is_action_just_pressed("ui_mouse_left"):
 			if mouseOverItem == true:
 				dragging = true
-		elif Input.is_action_just_released("LeftMouse"):
+		elif Input.is_action_just_released("ui_mouse_left"):
 			dragging = false
 
 func itemGrabbed(itemTag):
