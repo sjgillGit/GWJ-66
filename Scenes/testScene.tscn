@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://dai8qcnwiwc7s"]
+
+[ext_resource type="Script" path="res://Scenes/testSceneManager.gd" id="1_lhk0t"]
+[ext_resource type="PackedScene" uid="uid://c01d5vioi6388" path="res://Gui/Inventory.tscn" id="2_nyoh4"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lhk0t")
+
+[node name="Use" type="Button" parent="."]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 14.0
+offset_right = 940.0
+offset_bottom = 55.0
+text = "Use Key"
+
+[node name="Pick" type="Button" parent="."]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 12.0
+offset_right = 395.0
+offset_bottom = 53.0
+text = "Pick Up Key
+"
+
+[node name="Use2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 12.0
+offset_right = 795.0
+offset_bottom = 53.0
+text = "Use Banana"
+
+[node name="Pick2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 11.0
+offset_right = 541.0
+offset_bottom = 52.0
+text = "Pick Up Banana
+"
+
+[node name="Inventory" parent="." instance=ExtResource("2_nyoh4")]
+layout_mode = 1
+offset_left = 34.0
+offset_top = 12.0
+offset_right = 34.0
+offset_bottom = 20.176
+
+[connection signal="pressed" from="Use" to="." method="_on_use_pressed"]
+[connection signal="pressed" from="Pick" to="." method="_on_pick_pressed"]
+[connection signal="pressed" from="Use2" to="." method="_on_use_2_pressed"]
+[connection signal="pressed" from="Pick2" to="." method="_on_pick_2_pressed"]
