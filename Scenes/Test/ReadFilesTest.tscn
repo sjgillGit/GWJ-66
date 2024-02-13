@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0f3020u2q4hf"]
+
+[sub_resource type="GDScript" id="GDScript_erigt"]
+script/source = "extends Label
+
+
+func _ready():
+	text = Lang.get_line(\"example\", \"test\")
+"
+
+[sub_resource type="GDScript" id="GDScript_x87h1"]
+script/source = "extends Button
+
+#------------------
+# Testing read json button inline script
+#------------------
+
+func _on_pressed():
+	var result = JsonHelper.read_file(\"example\")
+	if result == {}:
+		print(\"File not exist\")
+	else:
+		print(result)
+"
+
+[sub_resource type="GDScript" id="GDScript_3hj4r"]
+script/source = "extends Button
+
+#------------------
+# Testing write json button inline script
+#------------------
+
+
+func _on_pressed():
+	var data = JsonHelper.read_file(\"example\")
+	if data.has(\"test_counter\"):
+		data[\"test_counter\"] = data[\"test_counter\"] + 1
+	else:
+		data[\"test_counter\"] = 0
+	
+	JsonHelper.write_file(\"example\", data)
+	print(\"data saved to file\")
+"
+
+[node name="ReadFilesTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 192.0
+offset_bottom = 63.0
+script = SubResource("GDScript_erigt")
+
+[node name="Read" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 96.0
+offset_right = 193.0
+offset_bottom = 127.0
+text = "Read"
+script = SubResource("GDScript_x87h1")
+
+[node name="Write" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 160.0
+offset_right = 193.0
+offset_bottom = 191.0
+text = "Write
+"
+script = SubResource("GDScript_3hj4r")
+
+[connection signal="pressed" from="Read" to="Read" method="_on_pressed"]
+[connection signal="pressed" from="Write" to="Write" method="_on_pressed"]
