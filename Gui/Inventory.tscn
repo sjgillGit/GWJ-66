@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c01d5vioi6388"]
 
-[ext_resource type="Script" path="res://Gui/InventoryManager.gd" id="1_jf7g7"]
 [ext_resource type="PackedScene" uid="uid://dx16vew5flo3q" path="res://Gui/InventorySpace.tscn" id="1_ldbpd"]
-[ext_resource type="Texture2D" uid="uid://bkx57xqftgsdu" path="res://Gui/key.png" id="2_qpyab"]
-[ext_resource type="Texture2D" uid="uid://dljhijm71konv" path="res://Gui/banana.png" id="3_ebkam"]
-[ext_resource type="Texture2D" uid="uid://ogrjsdond7nh" path="res://Gui/closeButton.png" id="5_grc37"]
+[ext_resource type="Script" path="res://Scripts/Inventory/InventoryManager.gd" id="1_yb8wc"]
+[ext_resource type="Texture2D" uid="uid://bkx57xqftgsdu" path="res://Gui/Images/key.png" id="3_p6sig"]
+[ext_resource type="Texture2D" uid="uid://dljhijm71konv" path="res://Gui/Images/banana.png" id="4_gxwwc"]
+[ext_resource type="Texture2D" uid="uid://ogrjsdond7nh" path="res://Gui/Images/closeButton.png" id="5_b8ftj"]
 
 [sub_resource type="Gradient" id="Gradient_qgpkg"]
 colors = PackedColorArray(0.147672, 0.147672, 0.147672, 1, 0.340339, 0.340339, 0.340339, 1)
@@ -26,7 +26,7 @@ offset_bottom = 0.200012
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("1_jf7g7")
+script = ExtResource("1_yb8wc")
 
 [node name="QIbutton" type="TextureRect" parent="."]
 layout_mode = 0
@@ -67,8 +67,8 @@ offset_right = 128.12
 offset_bottom = 105.4
 inventoryTag = "key"
 quickInventorySlot = true
-itemImageTexutre = ExtResource("2_qpyab")
-itemSilhouetteTexture = ExtResource("2_qpyab")
+itemImageTexutre = ExtResource("3_p6sig")
+itemSilhouetteTexture = ExtResource("3_p6sig")
 
 [node name="InventorySpace" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
 layout_mode = 2
@@ -82,8 +82,8 @@ offset_right = 128.12
 offset_bottom = 219.56
 inventoryTag = "banana"
 quickInventorySlot = true
-itemImageTexutre = ExtResource("3_ebkam")
-itemSilhouetteTexture = ExtResource("3_ebkam")
+itemImageTexutre = ExtResource("4_gxwwc")
+itemSilhouetteTexture = ExtResource("4_gxwwc")
 
 [node name="InventorySpace3" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
 layout_mode = 2
@@ -127,7 +127,7 @@ offset_left = 149.0
 offset_top = 16.0
 offset_right = 171.0
 offset_bottom = 38.0
-texture_normal = ExtResource("5_grc37")
+texture_normal = ExtResource("5_b8ftj")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -155,7 +155,7 @@ offset_left = 851.0
 offset_top = 9.0
 offset_right = 873.0
 offset_bottom = 31.0
-texture_normal = ExtResource("5_grc37")
+texture_normal = ExtResource("5_b8ftj")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -166,8 +166,8 @@ offset_top = 21.0
 offset_right = 137.0
 offset_bottom = 122.0
 inventoryTag = "banana"
-itemImageTexutre = ExtResource("3_ebkam")
-itemSilhouetteTexture = ExtResource("3_ebkam")
+itemImageTexutre = ExtResource("4_gxwwc")
+itemSilhouetteTexture = ExtResource("4_gxwwc")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace"]
 layout_mode = 0
@@ -185,8 +185,8 @@ offset_top = 21.0
 offset_right = 265.0
 offset_bottom = 122.0
 inventoryTag = "key"
-itemImageTexutre = ExtResource("2_qpyab")
-itemSilhouetteTexture = ExtResource("2_qpyab")
+itemImageTexutre = ExtResource("3_p6sig")
+itemSilhouetteTexture = ExtResource("3_p6sig")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace2"]
 layout_mode = 0
