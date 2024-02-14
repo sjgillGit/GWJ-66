@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="SceneBuilder" load_steps=2 format=3 uid="uid://cwjh5kudqlsnw"]
+
+[ext_resource type="Script" path="res://Resources/SceneBuilder.gd" id="1_si15j"]
+
+[resource]
+script = ExtResource("1_si15j")
