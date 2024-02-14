@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://3mur87phgqr4"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Option/Check/Box/Box.gd" id="1_44i7d"]
+
+[node name="Box" type="HBoxContainer"]
+theme_override_constants/separation = 20
+script = ExtResource("1_44i7d")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Voice"
+
+[node name="Check" type="CheckBox" parent="."]
+layout_mode = 2
+
+[connection signal="toggled" from="Check" to="." method="_on_check_toggled"]

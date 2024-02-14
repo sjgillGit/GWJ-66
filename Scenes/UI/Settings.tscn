@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1pjos5dt4os7"]
+
+[ext_resource type="PackedScene" uid="uid://6ja2fj6oliq" path="res://Scenes/UI/VolumeOption/Option.tscn" id="1_o8imr"]
+[ext_resource type="PackedScene" uid="uid://c8oxpustjvnhn" path="res://Scenes/UI/VolumeOption/ControlTypes/Check.tscn" id="2_4mq7h"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpeechVolume" parent="Options" instance=ExtResource("1_o8imr")]
+layout_mode = 2
+value = 10.0
+text = "Speech volume"
+
+[node name="SoundVolume" parent="Options" instance=ExtResource("1_o8imr")]
+layout_mode = 2
+value = 10.0
+text = "Sound volume"
+
+[node name="MusicVolume" parent="Options" instance=ExtResource("1_o8imr")]
+layout_mode = 2
+value = 10.0
+text = "Music volume"
+
+[node name="DialogueFormat" parent="Options" instance=ExtResource("1_o8imr")]
+layout_mode = 2
+text = "Dialogue format"
+control_type = ExtResource("2_4mq7h")
