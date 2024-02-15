@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyhbr725ok5lg"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Speech/Speech.gd" id="1_ncai3"]
+
+[node name="Speech" type="Node3D"]
+script = ExtResource("1_ncai3")
+
+[node name="Text" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+text = "Hellow world"
+font_size = 60
+autowrap_mode = 3
+width = 1000.0

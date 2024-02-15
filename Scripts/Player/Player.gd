@@ -8,3 +8,7 @@ extends CharacterBody3D
 class_name Player
 
 @onready var movement: MovementController = get_node("MovementController")
+
+
+func _ready():
+	$Speech.write_speech("This is a new dialogue ability, that will allow for entities to speak out")

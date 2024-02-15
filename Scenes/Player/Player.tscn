@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://blnork1vhf7o4"]
+[gd_scene load_steps=7 format=3 uid="uid://blnork1vhf7o4"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qtn2k"]
 [ext_resource type="Script" path="res://Scripts/Player/MovementController.gd" id="1_rmcqe"]
+[ext_resource type="PackedScene" uid="uid://cyhbr725ok5lg" path="res://Scenes/Player/Speech/Speech.tscn" id="3_5n03r"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a2fc1"]
 
@@ -26,3 +27,5 @@ target_desired_distance = 5.0
 
 [node name="MovementController" type="Node3D" parent="."]
 script = ExtResource("1_rmcqe")
+
+[node name="Speech" parent="." instance=ExtResource("3_5n03r")]
