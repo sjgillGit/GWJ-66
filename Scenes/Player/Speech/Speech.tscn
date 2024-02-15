@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://dse2auigeblye" path="res://Resources/Dialogue.tres" id="2_meprs"]
 
 [node name="Speech" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_ncai3")
 dialogue = ExtResource("2_meprs")
 

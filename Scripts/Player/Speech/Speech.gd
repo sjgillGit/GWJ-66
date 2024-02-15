@@ -10,6 +10,7 @@ func _ready():
 
 
 func _write_speech(text:String):
+	get_tree().paused = true
 	$Text.text = ""
 	for char in text:
 		await get_tree().create_timer(0.1).timeout
@@ -17,6 +18,7 @@ func _write_speech(text:String):
 	await get_tree().create_timer(0.5).timeout
 	$Text.text = ""
 	dialogue.receive_response()
+	get_tree().paused = false
 	
 
 func _on_speech_triggered(speaker:String, message:String):
