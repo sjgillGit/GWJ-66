@@ -7,8 +7,10 @@ extends CharacterBody3D
 
 class_name Player
 
+@export var dialogue: Dialogue
 @onready var movement: MovementController = get_node("MovementController")
 
 
 func _ready():
-	$Speech.write_speech("This is a new dialogue ability, that will allow for entities to speak out")
+	$Speech.speaker_name = "Player"
+	dialogue.make_speak("Player", "This is a new dialogue ability, that will allow for entities to speak out")
