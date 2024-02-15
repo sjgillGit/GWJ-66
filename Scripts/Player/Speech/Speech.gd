@@ -2,6 +2,7 @@ extends Node3D
 
 
 @export var dialogue:Dialogue
+@export var text_fill_speed:float = 0.1
 var speaker_name:String
 var skip_pressed:bool = false
 
@@ -21,7 +22,9 @@ func _write_speech(text:String):
 	$Text.text = ""
 	for char in text:
 		if !skip_pressed:
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(text_fill_speed).timeout
+		else:
+			await get_tree().create_timer(0.000001).timeout
 		$Text.text += char
 	skip_pressed = false
 	while !skip_pressed:

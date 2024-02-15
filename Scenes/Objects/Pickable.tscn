@@ -8,17 +8,15 @@
 height = 0.5
 radius = 1.0
 
-[node name="Pickable" type="Node3D"]
+[node name="Pickable" type="Area3D"]
 script = ExtResource("1_35a46")
 dialogue = ExtResource("2_dx7sj")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_ptumh")
 
 [node name="Mesh" type="Node3D" parent="."]
 
 [node name="Key" parent="Mesh" instance=ExtResource("1_xdlk6")]
 
-[node name="Area" type="Area3D" parent="."]
-
-[node name="Collision" type="CollisionShape3D" parent="Area"]
-shape = SubResource("CylinderShape3D_ptumh")
-
-[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
