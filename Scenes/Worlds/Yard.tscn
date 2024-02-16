@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Worlds/Yard/Yard.gd" id="1_im1yx"]
 [ext_resource type="Resource" uid="uid://cwjh5kudqlsnw" path="res://Resources/SceneBuilder.tres" id="2_fxykp"]
-[ext_resource type="PackedScene" uid="uid://djnfu2for3mj0" path="res://Scenes/Worlds/OutsideYard.tscn" id="2_kkojl"]
+[ext_resource type="PackedScene" uid="uid://djnfu2for3mj0" path="res://Scenes/Worlds/Model/OutsideYard.tscn" id="2_kkojl"]
 [ext_resource type="PackedScene" uid="uid://chobcnge5osgq" path="res://Scenes/Objects/Pickable.tscn" id="3_x18na"]
 [ext_resource type="PackedScene" uid="uid://blnork1vhf7o4" path="res://Scenes/Player/Player.tscn" id="4_t5081"]
 [ext_resource type="Script" path="res://Scripts/Player/CameraController.gd" id="5_5j1ap"]
@@ -23,6 +23,7 @@ scene_builder = ExtResource("2_fxykp")
 [node name="Key" parent="Objects" instance=ExtResource("3_x18na")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.577431, 0)
 visible = false
+tag = "key"
 
 [node name="Key2" parent="Objects" instance=ExtResource("3_x18na")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7848, 0.577431, 0)
