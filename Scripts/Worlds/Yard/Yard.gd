@@ -4,7 +4,6 @@ extends Node3D
 @export var scene_builder:SceneBuilder
 
 
-
 func _ready():
 	connect_objects_signals()
 	connect_scene_builder_signals()
