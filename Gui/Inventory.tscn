@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c01d5vioi6388"]
+[gd_scene load_steps=14 format=3 uid="uid://c01d5vioi6388"]
 
 [ext_resource type="PackedScene" uid="uid://dx16vew5flo3q" path="res://Gui/InventorySpace.tscn" id="1_ldbpd"]
 [ext_resource type="Script" path="res://Scripts/Inventory/InventoryManager.gd" id="1_yb8wc"]
-[ext_resource type="Texture2D" uid="uid://bkx57xqftgsdu" path="res://Gui/Images/key.png" id="3_p6sig"]
-[ext_resource type="Texture2D" uid="uid://dljhijm71konv" path="res://Gui/Images/banana.png" id="4_gxwwc"]
-[ext_resource type="Texture2D" uid="uid://ogrjsdond7nh" path="res://Gui/Images/closeButton.png" id="5_b8ftj"]
+[ext_resource type="Texture2D" uid="uid://cw0sup3edvx8p" path="res://Gui/Images/Close_button.png" id="4_rxw2o"]
+[ext_resource type="Texture2D" uid="uid://in4uvf3oyxoq" path="res://Gui/Images/Panel/background_panel.png" id="6_7yjkv"]
 
 [sub_resource type="Gradient" id="Gradient_qgpkg"]
 colors = PackedColorArray(0.147672, 0.147672, 0.147672, 1, 0.340339, 0.340339, 0.340339, 1)
@@ -12,6 +11,27 @@ colors = PackedColorArray(0.147672, 0.147672, 0.147672, 1, 0.340339, 0.340339, 0
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8wr8p"]
 gradient = SubResource("Gradient_qgpkg")
 fill_from = Vector2(0.362385, 0.0229358)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5enmp"]
+load_path = "res://.godot/imported/closeButton.png-8c734edb5bd3e50492cc9ae539bd38df.ctex"
+
+[sub_resource type="Gradient" id="Gradient_4g85h"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_culkj"]
+gradient = SubResource("Gradient_4g85h")
+fill_to = Vector2(0.633027, 0.582569)
+
+[sub_resource type="Gradient" id="Gradient_5llf5"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 0.301961, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3ayj7"]
+gradient = SubResource("Gradient_5llf5")
+
+[sub_resource type="Gradient" id="Gradient_fif3n"]
+colors = PackedColorArray(0, 0, 0, 1, 0.551494, 0, 0.158376, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uyhym"]
+gradient = SubResource("Gradient_fif3n")
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -42,18 +62,13 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Panel" type="Panel" parent="QuickInventory"]
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.101
-anchor_top = 0.402
-anchor_right = 0.101
-anchor_bottom = 0.61
-offset_left = -4.04
-offset_top = -8.08
-offset_right = 177.96
-offset_bottom = 594.6
+[node name="TextureRect" type="TextureRect" parent="QuickInventory"]
+layout_mode = 0
+offset_left = -7.0
+offset_right = 181.0
+offset_bottom = 617.0
+texture = ExtResource("6_7yjkv")
+stretch_mode = 1
 
 [node name="InventorySpace2" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
 layout_mode = 2
@@ -65,10 +80,7 @@ offset_left = 32.12
 offset_top = 7.4
 offset_right = 128.12
 offset_bottom = 105.4
-inventoryTag = "key"
 quickInventorySlot = true
-itemImageTexutre = ExtResource("3_p6sig")
-itemSilhouetteTexture = ExtResource("3_p6sig")
 
 [node name="InventorySpace" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
 layout_mode = 2
@@ -80,10 +92,7 @@ offset_left = 32.12
 offset_top = 123.56
 offset_right = 128.12
 offset_bottom = 219.56
-inventoryTag = "banana"
 quickInventorySlot = true
-itemImageTexutre = ExtResource("4_gxwwc")
-itemSilhouetteTexture = ExtResource("4_gxwwc")
 
 [node name="InventorySpace3" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
 layout_mode = 2
@@ -127,7 +136,7 @@ offset_left = 149.0
 offset_top = 16.0
 offset_right = 171.0
 offset_bottom = 38.0
-texture_normal = ExtResource("5_b8ftj")
+texture_normal = SubResource("CompressedTexture2D_5enmp")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -140,9 +149,17 @@ offset_bottom = 40.0
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 105.0
-offset_top = 55.0
-offset_right = 987.0
-offset_bottom = 580.0
+offset_top = 54.0
+offset_right = 1032.0
+offset_bottom = 579.0
+
+[node name="TextureRect" type="TextureRect" parent="Normal/Panel"]
+layout_mode = 0
+offset_right = 927.0
+offset_bottom = 526.0
+texture = ExtResource("6_7yjkv")
+expand_mode = 2
+stretch_mode = 1
 
 [node name="InventorySpaces" type="Control" parent="Normal/Panel"]
 anchors_preset = 0
@@ -151,11 +168,11 @@ offset_bottom = 40.0
 
 [node name="CloseInventory" type="TextureButton" parent="Normal/Panel/InventorySpaces"]
 layout_mode = 0
-offset_left = 851.0
-offset_top = 9.0
-offset_right = 873.0
-offset_bottom = 31.0
-texture_normal = ExtResource("5_b8ftj")
+offset_left = 892.0
+offset_top = 12.0
+offset_right = 914.0
+offset_bottom = 34.0
+texture_normal = ExtResource("4_rxw2o")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -165,9 +182,8 @@ offset_left = 38.0
 offset_top = 21.0
 offset_right = 137.0
 offset_bottom = 122.0
-inventoryTag = "banana"
-itemImageTexutre = ExtResource("4_gxwwc")
-itemSilhouetteTexture = ExtResource("4_gxwwc")
+inventoryTag = "key"
+itemImageTexutre = SubResource("GradientTexture2D_culkj")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace"]
 layout_mode = 0
@@ -176,7 +192,58 @@ offset_top = 114.0
 offset_right = 102.0
 offset_bottom = 139.0
 bbcode_enabled = true
-text = "[center]Banana[/center]"
+text = "[center]unknown[/center]"
+
+[node name="InventorySpace13" parent="Normal/Panel/InventorySpaces" groups=["MergeItemSlot"] instance=ExtResource("1_ldbpd")]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 283.0
+offset_right = 654.0
+offset_bottom = 384.0
+mergeItemSlot = true
+
+[node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace13"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 114.0
+offset_right = 102.0
+offset_bottom = 139.0
+bbcode_enabled = true
+text = "[center][/center]"
+
+[node name="InventorySpace14" parent="Normal/Panel/InventorySpaces" groups=["MergeItemSlot"] instance=ExtResource("1_ldbpd")]
+layout_mode = 0
+offset_left = 802.0
+offset_top = 283.0
+offset_right = 901.0
+offset_bottom = 384.0
+mergeItemSlot = true
+
+[node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace14"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 114.0
+offset_right = 102.0
+offset_bottom = 139.0
+bbcode_enabled = true
+text = "[center][/center]"
+
+[node name="InventorySpace15" parent="Normal/Panel/InventorySpaces" groups=["MergeItemSlot"] instance=ExtResource("1_ldbpd")]
+layout_mode = 0
+offset_left = 677.0
+offset_top = 263.0
+offset_right = 776.0
+offset_bottom = 364.0
+mergeItemSlot = true
+
+[node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace15"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 114.0
+offset_right = 102.0
+offset_bottom = 139.0
+bbcode_enabled = true
+text = "[center][/center]"
 
 [node name="InventorySpace2" parent="Normal/Panel/InventorySpaces" instance=ExtResource("1_ldbpd")]
 layout_mode = 0
@@ -184,9 +251,8 @@ offset_left = 166.0
 offset_top = 21.0
 offset_right = 265.0
 offset_bottom = 122.0
-inventoryTag = "key"
-itemImageTexutre = ExtResource("3_p6sig")
-itemSilhouetteTexture = ExtResource("3_p6sig")
+inventoryTag = "banana"
+itemImageTexutre = SubResource("GradientTexture2D_3ayj7")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace2"]
 layout_mode = 0
@@ -195,7 +261,7 @@ offset_top = 114.0
 offset_right = 97.0
 offset_bottom = 139.0
 bbcode_enabled = true
-text = "Key"
+text = "[center]unknown[/center]"
 
 [node name="InventorySpace3" parent="Normal/Panel/InventorySpaces" instance=ExtResource("1_ldbpd")]
 layout_mode = 0
@@ -203,6 +269,8 @@ offset_left = 291.0
 offset_top = 21.0
 offset_right = 390.0
 offset_bottom = 122.0
+inventoryTag = "apple"
+itemImageTexutre = SubResource("GradientTexture2D_uyhym")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace3"]
 layout_mode = 0
@@ -228,6 +296,7 @@ offset_right = 95.0
 offset_bottom = 139.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
+scroll_active = false
 
 [node name="InventorySpace5" parent="Normal/Panel/InventorySpaces" instance=ExtResource("1_ldbpd")]
 layout_mode = 0
@@ -360,16 +429,17 @@ text = "[center]unknown[/center]"
 [node name="ItemDescription" type="Panel" parent="Normal/Panel"]
 self_modulate = Color(0.196078, 0.196078, 0.196078, 1)
 layout_mode = 0
-offset_left = 594.0
-offset_top = 35.0
-offset_right = 855.0
-offset_bottom = 486.0
+offset_left = 588.0
+offset_top = 16.0
+offset_right = 876.0
+offset_bottom = 231.0
 
 [node name="ItemName" type="RichTextLabel" parent="Normal/Panel/ItemDescription"]
 layout_mode = 0
-offset_top = 14.0
-offset_right = 259.0
-offset_bottom = 62.0
+offset_left = 8.0
+offset_top = 13.0
+offset_right = 267.0
+offset_bottom = 61.0
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]NAME HERE[/center]"
@@ -377,14 +447,30 @@ text = "[center]NAME HERE[/center]"
 [node name="ItemDescription" type="RichTextLabel" parent="Normal/Panel/ItemDescription"]
 layout_mode = 0
 offset_left = 17.0
-offset_top = 109.0
-offset_right = 249.0
-offset_bottom = 404.0
+offset_top = 74.0
+offset_right = 267.0
+offset_bottom = 173.0
 bbcode_enabled = true
-text = "description or notes or whatever."
+text = "[center]description or notes or whatever.[/center]"
+
+[node name="MergeButton" type="Button" parent="Normal/Panel"]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 434.0
+offset_right = 820.0
+offset_bottom = 479.0
+text = "Merge Items"
+
+[node name="ErrorMessage" type="RichTextLabel" parent="Normal/Panel"]
+layout_mode = 0
+offset_left = 647.0
+offset_top = 396.0
+offset_right = 815.0
+offset_bottom = 436.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+text = "Invalid Combination!"
 
 [connection signal="mouse_entered" from="QIbutton" to="." method="_on_texture_rect_mouse_entered"]
-[connection signal="mouse_entered" from="QuickInventory/Panel" to="." method="_on_panel_mouse_entered"]
-[connection signal="mouse_exited" from="QuickInventory/Panel" to="." method="_on_panel_mouse_exited"]
 [connection signal="pressed" from="QuickInventory/CloseQuickInventory" to="." method="_on_close_quick_inventory_pressed"]
 [connection signal="pressed" from="Normal/Panel/InventorySpaces/CloseInventory" to="." method="_on_close_inventory_pressed"]
+[connection signal="pressed" from="Normal/Panel/MergeButton" to="." method="_on_merge_button_pressed"]
