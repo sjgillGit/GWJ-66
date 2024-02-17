@@ -12,5 +12,4 @@ class_name Player
 
 
 func _ready():
-	$Speech.speaker_name = "Player"
-	dialogue.make_speak("Player", "This is a new dialogue ability, that will allow for entities to speak out")
+	$Speech.speaker_name = name

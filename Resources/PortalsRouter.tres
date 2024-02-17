@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="PortalsRouter" load_steps=2 format=3 uid="uid://pkv0yfais0kt"]
+
+[ext_resource type="Script" path="res://Resources/PortalsRouter.gd" id="1_mxcqq"]
+
+[resource]
+script = ExtResource("1_mxcqq")
