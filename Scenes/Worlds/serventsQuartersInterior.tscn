@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://j5gv8bccbsuy"]
+[gd_scene load_steps=11 format=3 uid="uid://j5gv8bccbsuy"]
 
 [ext_resource type="PackedScene" uid="uid://d230hul8eknn1" path="res://Scenes/Worlds/Model/servants_quarters_interior.tscn" id="1_e17ns"]
 [ext_resource type="PackedScene" uid="uid://blnork1vhf7o4" path="res://Scenes/Player/Player.tscn" id="2_14gcp"]
 [ext_resource type="Script" path="res://Scripts/Player/CameraController.gd" id="3_810tt"]
+[ext_resource type="Script" path="res://Scripts/Rooms/RoomArea.gd" id="4_gytrw"]
+[ext_resource type="PackedScene" uid="uid://c01d5vioi6388" path="res://Gui/Inventory.tscn" id="5_guqh7"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_7a4mo"]
 vertices = PackedVector3Array(-2.46101, 0.307199, -17.3453, -2.46101, 0.307199, -16.3453, -1.21101, 0.307199, -16.0953, -0.711009, 0.307199, -17.5953, 2.78899, 0.307199, -4.84529, 5.03899, 0.307199, -4.84529, 5.28899, 0.307199, -5.59529, 1.28899, 0.307199, -16.0953, 2.28899, 0.307199, -16.3453, 2.28899, 0.307199, -17.8453, 0.538991, 0.307199, -18.3453, -0.711009, 0.307199, -17.5953, -1.21101, 0.307199, -16.0953, -1.46101, 0.307199, -13.5953, -1.96101, 0.307199, -13.3453, -1.96101, 0.307199, -11.3453, -0.711009, 0.307199, -11.0953, 1.28899, 0.307199, -14.8453, 1.28899, 0.307199, -16.0953, -1.21101, 0.307199, -16.0953, -1.46101, 0.307199, -13.5953, -0.711009, 0.307199, -11.0953, 0.538991, 0.307199, -18.3453, 0.538991, 0.307199, -20.5953, -0.711009, 0.307199, -20.5953, -0.711009, 0.307199, -17.5953, -0.461009, 0.307199, -7.09529, 2.78899, 0.307199, -4.84529, 5.28899, 0.307199, -5.59529, 5.03899, 0.307199, -14.5953, 1.28899, 0.307199, -14.8453, -0.711009, 0.307199, -11.0953, 1.53899, 0.807199, -19.0953, 2.28899, 0.807199, -19.0953, 2.28899, 0.807199, -20.0953, 1.53899, 0.807199, -20.3453, -3.96101, 2.3072, -14.5953, -3.96101, 2.3072, -14.0953, -2.46101, 2.3072, -14.0953, -2.46101, 2.3072, -14.5953, -3.96101, 0.307199, -6.59529, -3.96101, 0.307199, -7.59529, -4.46101, 0.307199, -7.84529, -4.96101, 0.307199, -4.84529, -4.71101, 0.307199, -9.59529, -4.21101, 0.307199, -9.84529, -4.21101, 0.307199, -11.0953, -4.96101, 0.307199, -13.3453, -4.21101, 0.307199, -11.0953, -1.96101, 0.307199, -11.3453, -1.96101, 0.307199, -13.3453, -4.96101, 0.307199, -13.3453, -1.21101, 0.307199, -5.84529, -2.96101, 0.307199, -5.84529, -2.46101, 0.307199, -4.59529, 2.28899, 0.307199, -4.59529, 2.78899, 0.307199, -4.84529, -0.461009, 0.307199, -7.09529, -1.21101, 0.307199, -5.84529, 2.28899, 0.307199, -4.59529, -1.21101, 0.307199, -5.84529, -2.46101, 0.307199, -4.59529, -2.46101, 0.307199, 1.40471, 2.28899, 0.307199, 1.40471, -2.96101, 0.307199, -5.84529, -3.96101, 0.307199, -6.59529, -4.96101, 0.307199, -4.84529, -2.46101, 0.307199, -4.59529, -4.71101, 0.307199, -9.59529, -4.96101, 0.307199, -13.3453, -4.96101, 0.307199, -4.84529, -4.46101, 0.307199, -7.84529, -4.71101, 0.307199, -9.59529, -4.96101, 0.307199, -4.84529, -2.96101, 1.5572, -7.59529, -1.46101, 1.5572, -7.59529, -1.71101, 1.5572, -10.3453, -3.21101, 1.5572, -10.3453, -4.96101, 0.807199, -3.34529, -4.96101, 0.807199, 0.904715, -3.46101, 0.807199, 0.654715, -3.46101, 0.807199, -3.34529, -4.96101, 3.5572, -3.34529, -4.96101, 3.5572, 0.904715, -3.46101, 3.5572, 0.654715, -3.46101, 3.5572, -3.34529, 3.53899, 0.807199, -3.34529, 3.53899, 0.807199, 0.904715, 5.03899, 0.807199, 0.654715, 5.03899, 0.807199, -3.34529, 3.53899, 3.5572, -3.34529, 3.53899, 3.5572, 0.904715, 5.03899, 3.5572, 0.654715, 5.03899, 3.5572, -3.34529)
@@ -15,12 +17,13 @@ size = Vector3(11.393, 0.0617256, 17.9697)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6wpuv"]
 size = Vector3(6.20697, 0.0612793, 6.02441)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2okjt"]
+size = Vector3(8, 3.15527, 13.5489)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0mrgh"]
+size = Vector3(4.88147, 3.15527, 7.48177)
+
 [node name="ServentsQuartersInterior" type="Node3D"]
-
-[node name="Objects" type="Node3D" parent="."]
-
-[node name="Player" parent="." instance=ExtResource("2_14gcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.623621, 0.848192, -8.74228)
 
 [node name="Navigation" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_7a4mo")
@@ -38,11 +41,59 @@ shape = SubResource("BoxShape3D_6wpuv")
 [node name="ServantsQuartersInterior" parent="Navigation" instance=ExtResource("1_e17ns")]
 transform = Transform3D(0.578595, 0, 0, 0, 0.578595, 0, 0, 0, 0.578595, 0, 0, 0)
 
+[node name="Room1" type="Node3D" parent="Navigation"]
+
+[node name="Area2" type="Area3D" parent="Navigation/Room1" node_paths=PackedStringArray("room_camera_pos_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.411215, 0, -7.82676)
+script = ExtResource("4_gytrw")
+room_camera_pos_node = NodePath("../CameraPos")
+
+[node name="Shape" type="CollisionShape3D" parent="Navigation/Room1/Area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0882187, 1.07764, 1.78364)
+shape = SubResource("BoxShape3D_2okjt")
+
+[node name="CameraPos" type="Node3D" parent="Navigation/Room1"]
+transform = Transform3D(-2.97765e-08, 0.732091, -0.681207, 3.20007e-08, 0.681207, 0.732091, 1, 8.88179e-15, -4.37114e-08, -5.34334, 7.43046, -7.30836)
+
+[node name="Room2" type="Node3D" parent="Navigation"]
+
+[node name="Area3" type="Area3D" parent="Navigation/Room2" node_paths=PackedStringArray("room_camera_pos_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.411215, 0, -32.5286)
+script = ExtResource("4_gytrw")
+room_camera_pos_node = NodePath("../Node3D")
+
+[node name="Shape" type="CollisionShape3D" parent="Navigation/Room2/Area3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25637, 1.07764, 15.1275)
+shape = SubResource("BoxShape3D_0mrgh")
+
+[node name="Node3D" type="Node3D" parent="Navigation/Room2"]
+transform = Transform3D(-2.97765e-08, 0.732091, -0.681207, 3.20007e-08, 0.681207, 0.732091, 1, 8.88178e-15, -4.37114e-08, -2.89116, 7.6895, -16.3837)
+
+[node name="Player" parent="." instance=ExtResource("2_14gcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.623621, 0.848192, -8.74228)
+
 [node name="CameraController" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(-2.97765e-08, 0.732091, -0.681207, 3.20007e-08, 0.681207, 0.732091, 1, 8.88178e-15, -4.37114e-08, -5.34334, 7.43046, -6.53211)
+transform = Transform3D(-2.97765e-08, 0.732091, -0.681207, 3.20007e-08, 0.681207, 0.732091, 1, 8.88178e-15, -4.37114e-08, -5.34334, 7.43046, -7.30836)
+current = true
 script = ExtResource("3_810tt")
 player = NodePath("../Player")
+
+[node name="Objects" type="Node3D" parent="."]
 
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 21.8652, 0)
 light_energy = 1.5
+
+[node name="Inventory" parent="." instance=ExtResource("5_guqh7")]
+
+[node name="Button" type="Button" parent="Inventory"]
+layout_mode = 0
+offset_left = 879.0
+offset_top = 561.0
+offset_right = 1099.0
+offset_bottom = 611.0
+text = "Pick Up Acid"
+
+[connection signal="body_entered" from="Navigation/Room1/Area2" to="Navigation/Room1/Area2" method="_on_body_entered"]
+[connection signal="body_entered" from="Navigation/Room2/Area3" to="Navigation/Room2/Area3" method="_on_body_entered"]
+[connection signal="pressed" from="Inventory/Button" to="Inventory" method="_on_button_pressed"]

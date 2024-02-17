@@ -32,17 +32,27 @@ func _ready():
 	itemDescription.text = ""
 	error.hide()
 	
-	get_tree().call_group("InventorySpot", "itemGrabbed", "banana")
-	get_tree().call_group("InventorySpot", "itemGrabbed", "key")
+	#Player Starts with these two items
+	get_tree().call_group("InventorySpot", "itemGrabbed", "Knife")
+	get_tree().call_group("InventorySpot", "itemGrabbed", "Suitcase")
 	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	# For Testing
+	get_tree().call_group("InventorySpot", "itemGrabbed", "Key")
+	get_tree().call_group("InventorySpot", "itemGrabbed", "Wrench")
+	get_tree().call_group("InventorySpot", "itemGrabbed", "Hammer")
+	get_tree().call_group("InventorySpot", "itemGrabbed", "Chain Key")
+	get_tree().call_group("InventorySpot", "itemGrabbed", "Bottle")
+	get_tree().call_group("InventorySpot", "itemGrabbed", "Pill Bottle")
+	get_tree().call_group("InventorySpot", "itemGrabbed", "Muddler")
+	
 func _process(delta):
 	if Input.is_action_just_pressed("OpenInventory"):
 		if inventoryOpen:
+			get_tree().paused = false
 			Inventory.hide()
 			inventoryOpen = false
 		else:
+			get_tree().paused = true
 			Inventory.show()
 			inventoryOpen = true
 		
@@ -68,6 +78,7 @@ func _on_close_quick_inventory_pressed():
 
 func _on_close_inventory_pressed():
 	# If close inventory button pressed, well, close inventory.
+	get_tree().paused = false
 	Inventory.hide()
 	inventoryOpen = false
 
@@ -78,15 +89,31 @@ func showDescription(tag,has,used):
 		
 		# HERE ADD THE DESCRIPTIONS FOR EACH ITEM, MAKE SURE THE TAGS MATCH #
 		
-		if tag == "banana":
-			itemDescription.text = "[center]"+"The banana is a berry."+"[/center]"
-		elif tag == "key":
-			itemDescription.text = "[center]"+"The Key can be used to unlock something"+"[/center]"
-		elif tag == "snowball":
-			itemDescription.text = "[center]"+"The Snowball is a little cold"+"[/center]"
-		elif tag == "Super Banana":
-			itemDescription.text = "[center]"+"This is a square banana"+"[/center]"
-
+		if tag == "Knife":
+			itemDescription.text = "[center]"+"The knife is a dangerous tool, take your time. Once you use it, there is no going back."+"[/center]"
+		elif tag == "Suitcase":
+			itemDescription.text = "[center]"+"Holds all of your trusty items, you never know what you might find around here that could help out."+"[/center]"
+		elif tag == "Key":
+			itemDescription.text = "[center]"+"This Key looks like it might unlock something, could be useful to keep onhand."+"[/center]"
+		elif tag == "Wrench":
+			itemDescription.text = "[center]"+"A decent tool, maybe there are some other tools you could put with this."+"[/center]"
+		elif tag == "Hammer":
+			itemDescription.text = "[center]"+"A pretty good tool, maybe there are some other tools you could put with this."+"[/center]"
+		elif tag == "Chain Key":
+			itemDescription.text = "[center]"+"Another key! but this one looks a bit different, wonder what its for?"+"[/center]"
+		elif tag == "Bottle":
+			itemDescription.text = "[center]"+"An empty bottle, probably not worth very much."+"[/center]"
+		elif tag == "Pill Bottle":
+			itemDescription.text = "[center]"+"Looks like a servents pills, they probably wouldn't be very good for you..."+"[/center]"
+		elif tag == "Crushed Pills":
+			itemDescription.text = "[center]"+"Never really liked swallowing pills very much, but what did these guys do to you?"+"[/center]"
+		elif tag == "Acid Bottle":
+			itemDescription.text = "[center]"+"The Bottle came in use after all. Now you got some acid! ...What you going to use that for?"+"[/center]"
+		elif tag == "Chemical Solution":
+			itemDescription.text = "[center]"+"Good job, you've made something, doesn't smell very nice, but maybe it'll come in use?"+"[/center]"
+		elif tag == "Muddler":
+			itemDescription.text = "[center]"+"Looks like it could be used to crush something, or hit something. Do whatever you like with it."+"[/center]"
+			
 func hideDescription():
 	# set description and name to blank.
 	itemName.text = ""
@@ -96,13 +123,10 @@ func mergeItems(tag):
 	# Set sent tags to three items.
 	if merged == 1:
 		itemOne = tag
-		print("1")
 	elif merged == 2:
 		itemTwo = tag
-		print("2")
 	elif merged == 3:
 		itemThree = tag
-		print("3")
 	merged += 1
 	
 	mergeRecipees()
@@ -128,13 +152,12 @@ func mergeRecipees():
 	
 	var createdItem = ""
 	
-	if "banana" in items and "key" in items:
-		createdItem = "apple"
-	elif "apple" in items and "key" in items and "banana" in items:
-		createdItem = "moon"
+	if "Muddler" in items and "Pill Bottle" in items:
+		createdItem = "Crushed Pills"
+	elif "Crushed Pills" in items and "Acid Bottle" in items:
+		createdItem = "Chemical Substance"
 	#... Add more recipees here
-
-		
+	
 	if createdItem != "":
 		# Create item.
 		get_tree().call_group("InventorySpot", "itemGrabbed", createdItem)
@@ -144,6 +167,15 @@ func mergeRecipees():
 	else:
 		error.show()
 
-
 func hideError():
 	error.hide()
+
+
+func _on_panel_mouse_entered():
+	GlobalScript.usingQuickInventory = true
+
+func _on_panel_mouse_exited():
+	GlobalScript.usingQuickInventory = false
+
+func _on_button_pressed():
+	get_tree().call_group("InventorySpot", "itemUsed", "Bottle")
