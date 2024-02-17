@@ -5,7 +5,7 @@ class_name SceneBuilder
 signal list_changed
 
 
-var worlds_objects:Dictionary = {"Yard":["Key"]}
+var worlds_objects:Dictionary = {"Yard":["Key", "Farmstead"]}
 
 
 func set_world_items(objects_node:Node, scene_name:String):

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ejjb41kquy3p"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/Portal.gd" id="1_jhohj"]
+[ext_resource type="Resource" uid="uid://pkv0yfais0kt" path="res://Resources/PortalsRouter.tres" id="2_tbfc8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hnplj"]
+size = Vector3(5.57474, 0.535645, 2.14343)
+
+[node name="Portal" type="Area3D"]
+script = ExtResource("1_jhohj")
+portals_router = ExtResource("2_tbfc8")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00474548, -0.0185547, -0.0103149)
+shape = SubResource("BoxShape3D_hnplj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

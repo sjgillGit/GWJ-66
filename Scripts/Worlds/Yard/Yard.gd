@@ -16,7 +16,8 @@ func update_objects():
 
 func connect_objects_signals():
 	for object in $Objects.get_children():
-		object.picked.connect(_on_object_picked)
+		if object.has_method("picked"):
+			object.picked.connect(_on_object_picked)
 
 
 func connect_scene_builder_signals():

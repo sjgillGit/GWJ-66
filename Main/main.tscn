@@ -1,16 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmexjlj0ilgtd"]
+[gd_scene load_steps=5 format=3 uid="uid://cmexjlj0ilgtd"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_wnj6j"]
+[ext_resource type="PackedScene" uid="uid://blnork1vhf7o4" path="res://Scenes/Player/Player.tscn" id="2_asgyk"]
+[ext_resource type="Resource" uid="uid://pkv0yfais0kt" path="res://Resources/PortalsRouter.tres" id="2_md4uj"]
 [ext_resource type="PackedScene" uid="uid://c1pjos5dt4os7" path="res://Scenes/UI/Settings.tscn" id="2_tx6qg"]
-
-[sub_resource type="PackedScene" id="PackedScene_w4mxi"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_wnj6j")
-world_scenes = Array[PackedScene]([SubResource("PackedScene_w4mxi")])
+player_scene = ExtResource("2_asgyk")
+portals_router = ExtResource("2_md4uj")
 
 [node name="World" type="Node3D" parent="."]
 
 [node name="UIs" type="CanvasLayer" parent="."]
 
 [node name="Settings" parent="UIs" instance=ExtResource("2_tx6qg")]
+visible = false
+
+[node name="PortalTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="PortalTimer" to="." method="_on_portal_timer_timeout"]
