@@ -1,9 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://c01d5vioi6388"]
+[gd_scene load_steps=16 format=3 uid="uid://c01d5vioi6388"]
 
 [ext_resource type="PackedScene" uid="uid://dx16vew5flo3q" path="res://Gui/InventorySpace.tscn" id="1_ldbpd"]
 [ext_resource type="Script" path="res://Scripts/Inventory/InventoryManager.gd" id="1_yb8wc"]
 [ext_resource type="Texture2D" uid="uid://cw0sup3edvx8p" path="res://Gui/Images/Close_button.png" id="4_rxw2o"]
 [ext_resource type="Texture2D" uid="uid://in4uvf3oyxoq" path="res://Gui/Images/Panel/background_panel.png" id="6_7yjkv"]
+[ext_resource type="Texture2D" uid="uid://b8awv0n0jjyjg" path="res://Gui/Images/ItemImages/knife.png" id="7_e73oy"]
+[ext_resource type="Texture2D" uid="uid://boe3ktirscvhd" path="res://Gui/Images/ItemImages/Chemical Solution/Solution.png" id="7_slofl"]
+[ext_resource type="Texture2D" uid="uid://loswulyjhkkk" path="res://Gui/Images/ItemImages/key.png" id="8_5s6wn"]
+[ext_resource type="Texture2D" uid="uid://cams8p6w2m2q3" path="res://Gui/Images/ItemImages/hammer.png" id="8_djps8"]
+[ext_resource type="Texture2D" uid="uid://ds2u18ctrbgjr" path="res://Gui/Images/ItemImages/wrench.png" id="9_eyw2c"]
+[ext_resource type="Texture2D" uid="uid://da0jeta6cxcoo" path="res://Gui/Images/ItemImages/Chemical Solution/Bottle.png" id="11_7jppn"]
+[ext_resource type="Texture2D" uid="uid://bk7jphf8brhp8" path="res://Gui/Images/ItemImages/ChainKey.png" id="11_dwyss"]
+[ext_resource type="Texture2D" uid="uid://d3sr58p5yiubn" path="res://Gui/Images/ItemImages/Chemical Solution/PillBottle.png" id="12_jqwm6"]
+[ext_resource type="Texture2D" uid="uid://dv57c0hrfqibv" path="res://Gui/Images/ItemImages/Chemical Solution/Muddler.png" id="13_4ogn2"]
 
 [sub_resource type="Gradient" id="Gradient_qgpkg"]
 colors = PackedColorArray(0.147672, 0.147672, 0.147672, 1, 0.340339, 0.340339, 0.340339, 1)
@@ -12,28 +21,8 @@ colors = PackedColorArray(0.147672, 0.147672, 0.147672, 1, 0.340339, 0.340339, 0
 gradient = SubResource("Gradient_qgpkg")
 fill_from = Vector2(0.362385, 0.0229358)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5enmp"]
-load_path = "res://.godot/imported/closeButton.png-8c734edb5bd3e50492cc9ae539bd38df.ctex"
-
-[sub_resource type="Gradient" id="Gradient_4g85h"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_culkj"]
-gradient = SubResource("Gradient_4g85h")
-fill_to = Vector2(0.633027, 0.582569)
-
-[sub_resource type="Gradient" id="Gradient_5llf5"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 0.301961, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3ayj7"]
-gradient = SubResource("Gradient_5llf5")
-
-[sub_resource type="Gradient" id="Gradient_fif3n"]
-colors = PackedColorArray(0, 0, 0, 1, 0.551494, 0, 0.158376, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uyhym"]
-gradient = SubResource("Gradient_fif3n")
-
 [node name="Inventory" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchor_left = 0.028
 anchor_top = 0.037
@@ -50,23 +39,23 @@ script = ExtResource("1_yb8wc")
 
 [node name="QIbutton" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 3.0
+offset_left = -39.0
 offset_top = 247.0
-offset_right = 67.0
+offset_right = 25.0
 offset_bottom = 339.0
 texture = SubResource("GradientTexture2D_8wr8p")
 
 [node name="QuickInventory" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="QuickInventory"]
+[node name="Panel" type="TextureRect" parent="QuickInventory"]
 layout_mode = 0
 offset_left = -7.0
 offset_right = 181.0
 offset_bottom = 617.0
+mouse_filter = 0
 texture = ExtResource("6_7yjkv")
 stretch_mode = 1
 
@@ -80,6 +69,8 @@ offset_left = 32.12
 offset_top = 7.4
 offset_right = 128.12
 offset_bottom = 105.4
+inventoryTag = "Knife"
+itemImageTexutre = ExtResource("7_e73oy")
 quickInventorySlot = true
 
 [node name="InventorySpace" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
@@ -92,6 +83,8 @@ offset_left = 32.12
 offset_top = 123.56
 offset_right = 128.12
 offset_bottom = 219.56
+inventoryTag = "Key"
+itemImageTexutre = ExtResource("8_5s6wn")
 quickInventorySlot = true
 
 [node name="InventorySpace3" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
@@ -104,6 +97,8 @@ offset_left = 32.12
 offset_top = 240.6
 offset_right = 128.12
 offset_bottom = 336.6
+inventoryTag = "Chain Key"
+itemImageTexutre = ExtResource("11_dwyss")
 quickInventorySlot = true
 
 [node name="InventorySpace4" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
@@ -116,6 +111,8 @@ offset_left = 32.12
 offset_top = 357.64
 offset_right = 128.12
 offset_bottom = 453.64
+inventoryTag = "Chemical Solution"
+itemImageTexutre = ExtResource("7_slofl")
 quickInventorySlot = true
 
 [node name="InventorySpace5" parent="QuickInventory" instance=ExtResource("1_ldbpd")]
@@ -132,39 +129,43 @@ quickInventorySlot = true
 
 [node name="CloseQuickInventory" type="TextureButton" parent="QuickInventory"]
 layout_mode = 0
-offset_left = 149.0
+offset_left = 148.0
 offset_top = 16.0
-offset_right = 171.0
+offset_right = 170.0
 offset_bottom = 38.0
-texture_normal = SubResource("CompressedTexture2D_5enmp")
+texture_normal = ExtResource("4_rxw2o")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Normal" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Panel" type="Panel" parent="Normal"]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.54902, 0.54902, 0.54902, 1)
 layout_mode = 0
-offset_left = 105.0
-offset_top = 54.0
-offset_right = 1032.0
-offset_bottom = 579.0
+offset_left = -22.0
+offset_top = -11.0
+offset_right = 1132.0
+offset_bottom = 634.0
 
 [node name="TextureRect" type="TextureRect" parent="Normal/Panel"]
 layout_mode = 0
-offset_right = 927.0
-offset_bottom = 526.0
+offset_left = 124.0
+offset_top = 66.0
+offset_right = 1059.0
+offset_bottom = 584.0
 texture = ExtResource("6_7yjkv")
-expand_mode = 2
 stretch_mode = 1
 
 [node name="InventorySpaces" type="Control" parent="Normal/Panel"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 127.0
+offset_top = 65.0
+offset_right = 167.0
+offset_bottom = 105.0
 
 [node name="CloseInventory" type="TextureButton" parent="Normal/Panel/InventorySpaces"]
 layout_mode = 0
@@ -182,15 +183,15 @@ offset_left = 38.0
 offset_top = 21.0
 offset_right = 137.0
 offset_bottom = 122.0
-inventoryTag = "key"
-itemImageTexutre = SubResource("GradientTexture2D_culkj")
+inventoryTag = "Knife"
+itemImageTexutre = ExtResource("7_e73oy")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace"]
 layout_mode = 0
 offset_left = 2.0
-offset_top = 114.0
+offset_top = 109.0
 offset_right = 102.0
-offset_bottom = 139.0
+offset_bottom = 160.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 
@@ -251,15 +252,14 @@ offset_left = 166.0
 offset_top = 21.0
 offset_right = 265.0
 offset_bottom = 122.0
-inventoryTag = "banana"
-itemImageTexutre = SubResource("GradientTexture2D_3ayj7")
+inventoryTag = "Suitcase"
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace2"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 114.0
+offset_top = 109.0
 offset_right = 97.0
-offset_bottom = 139.0
+offset_bottom = 161.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 
@@ -269,15 +269,15 @@ offset_left = 291.0
 offset_top = 21.0
 offset_right = 390.0
 offset_bottom = 122.0
-inventoryTag = "apple"
-itemImageTexutre = SubResource("GradientTexture2D_uyhym")
+inventoryTag = "Key"
+itemImageTexutre = ExtResource("8_5s6wn")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace3"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 114.0
+offset_top = 109.0
 offset_right = 95.0
-offset_bottom = 139.0
+offset_bottom = 158.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 
@@ -287,13 +287,15 @@ offset_left = 419.0
 offset_top = 21.0
 offset_right = 518.0
 offset_bottom = 122.0
+inventoryTag = "Wrench"
+itemImageTexutre = ExtResource("9_eyw2c")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace4"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 114.0
+offset_top = 109.0
 offset_right = 95.0
-offset_bottom = 139.0
+offset_bottom = 157.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 scroll_active = false
@@ -304,13 +306,15 @@ offset_left = 40.0
 offset_top = 193.0
 offset_right = 139.0
 offset_bottom = 294.0
+inventoryTag = "Hammer"
+itemImageTexutre = ExtResource("8_djps8")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace5"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 114.0
+offset_top = 109.0
 offset_right = 95.0
-offset_bottom = 139.0
+offset_bottom = 161.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 
@@ -320,13 +324,15 @@ offset_left = 168.0
 offset_top = 193.0
 offset_right = 267.0
 offset_bottom = 294.0
+inventoryTag = "Chain Key"
+itemImageTexutre = ExtResource("11_dwyss")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace6"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 114.0
+offset_top = 109.0
 offset_right = 95.0
-offset_bottom = 139.0
+offset_bottom = 159.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 
@@ -336,13 +342,15 @@ offset_left = 294.0
 offset_top = 194.0
 offset_right = 393.0
 offset_bottom = 295.0
+inventoryTag = "Bottle"
+itemImageTexutre = ExtResource("11_7jppn")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace7"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 114.0
+offset_top = 108.0
 offset_right = 95.0
-offset_bottom = 139.0
+offset_bottom = 156.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 
@@ -352,13 +360,15 @@ offset_left = 422.0
 offset_top = 194.0
 offset_right = 521.0
 offset_bottom = 295.0
+inventoryTag = "Pill Bottle"
+itemImageTexutre = ExtResource("12_jqwm6")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace8"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 114.0
+offset_top = 107.0
 offset_right = 95.0
-offset_bottom = 139.0
+offset_bottom = 156.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 
@@ -368,13 +378,15 @@ offset_left = 40.0
 offset_top = 364.0
 offset_right = 139.0
 offset_bottom = 465.0
+inventoryTag = "Muddler"
+itemImageTexutre = ExtResource("13_4ogn2")
 
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace9"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 114.0
+offset_top = 109.0
 offset_right = 95.0
-offset_bottom = 139.0
+offset_bottom = 150.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 
@@ -388,9 +400,9 @@ offset_bottom = 465.0
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace10"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 114.0
+offset_top = 109.0
 offset_right = 95.0
-offset_bottom = 139.0
+offset_bottom = 149.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 
@@ -404,9 +416,9 @@ offset_bottom = 466.0
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace11"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 114.0
+offset_top = 109.0
 offset_right = 95.0
-offset_bottom = 139.0
+offset_bottom = 149.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 
@@ -420,25 +432,25 @@ offset_bottom = 466.0
 [node name="name" type="RichTextLabel" parent="Normal/Panel/InventorySpaces/InventorySpace12"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 114.0
+offset_top = 109.0
 offset_right = 95.0
-offset_bottom = 139.0
+offset_bottom = 154.0
 bbcode_enabled = true
 text = "[center]unknown[/center]"
 
 [node name="ItemDescription" type="Panel" parent="Normal/Panel"]
 self_modulate = Color(0.196078, 0.196078, 0.196078, 1)
 layout_mode = 0
-offset_left = 588.0
-offset_top = 16.0
-offset_right = 876.0
-offset_bottom = 231.0
+offset_left = 715.0
+offset_top = 81.0
+offset_right = 1003.0
+offset_bottom = 296.0
 
 [node name="ItemName" type="RichTextLabel" parent="Normal/Panel/ItemDescription"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 13.0
-offset_right = 267.0
+offset_right = 282.0
 offset_bottom = 61.0
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
@@ -448,29 +460,31 @@ text = "[center]NAME HERE[/center]"
 layout_mode = 0
 offset_left = 17.0
 offset_top = 74.0
-offset_right = 267.0
+offset_right = 271.0
 offset_bottom = 173.0
 bbcode_enabled = true
 text = "[center]description or notes or whatever.[/center]"
 
 [node name="MergeButton" type="Button" parent="Normal/Panel"]
 layout_mode = 0
-offset_left = 635.0
-offset_top = 434.0
-offset_right = 820.0
-offset_bottom = 479.0
+offset_left = 762.0
+offset_top = 499.0
+offset_right = 947.0
+offset_bottom = 544.0
 text = "Merge Items"
 
 [node name="ErrorMessage" type="RichTextLabel" parent="Normal/Panel"]
 layout_mode = 0
-offset_left = 647.0
-offset_top = 396.0
-offset_right = 815.0
-offset_bottom = 436.0
+offset_left = 774.0
+offset_top = 461.0
+offset_right = 942.0
+offset_bottom = 501.0
 theme_override_colors/default_color = Color(1, 0, 0, 1)
 text = "Invalid Combination!"
 
 [connection signal="mouse_entered" from="QIbutton" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_entered" from="QuickInventory/Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="QuickInventory/Panel" to="." method="_on_panel_mouse_exited"]
 [connection signal="pressed" from="QuickInventory/CloseQuickInventory" to="." method="_on_close_quick_inventory_pressed"]
 [connection signal="pressed" from="Normal/Panel/InventorySpaces/CloseInventory" to="." method="_on_close_inventory_pressed"]
 [connection signal="pressed" from="Normal/Panel/MergeButton" to="." method="_on_merge_button_pressed"]

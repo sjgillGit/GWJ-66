@@ -16,8 +16,9 @@ var has_target: bool
 
 
 func set_target(new_target: Vector3) -> void:
-	nav_agent.target_position = new_target
-	has_target = true
+	if !GlobalScript.usingQuickInventory:
+		nav_agent.target_position = new_target
+		has_target = true
 
 
 func _physics_process(delta: float) -> void:

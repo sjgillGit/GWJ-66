@@ -9,16 +9,18 @@ extends Panel
 ## Check this if its put in the quick inventory
 @export var quickInventorySlot = false
 
+#Chemical Solution
+var AcidBottleSprite = preload("res://Gui/Images/ItemImages/Chemical Solution/AcidBottle.png")
+var ChemicalSolutionSprite = preload("res://Gui/Images/ItemImages/Chemical Solution/Solution.png")
+var crushedPills = preload("res://Gui/Images/ItemImages/Chemical Solution/CrushedPills.png")
 
 #Merging Items
 @export var mergeItemSlot = false
 var mouseOverMergeSlot = false
 var merged = 0
 
-
 var normalSlot = true
 var mouseOverNormalSlot = false
-
 
 # These variables are the only thing needed to be saved for inventory.
 var hasItemBool = false
@@ -28,7 +30,6 @@ var itemUsedBool = false
 var mouseOverQuickSlot = false
 var dragging = false
 
-
 #Sprite for the item, will be changed between - ? - Item Image - Silhouette Of Item -
 @onready var itemSprite = $ItemSprite/Item
 @onready var spritePos = $ItemSprite
@@ -36,7 +37,6 @@ var dragging = false
 #Inventory
 @onready var Inventory = $"../../../.."
 @onready var itemName = $name
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -94,14 +94,37 @@ func checkDragging():
 			dragging = false
 
 func itemUsed(itemTag):
-	#check if item picked up should be put here.
-	if itemTag == inventoryTag && hasItemBool == true:
-		hasItemBool = false
-		itemUsedBool = true
-		#Change image to - Item Silhouette
-		itemSprite.modulate.a = 0.3
-		itemSprite.texture = itemImageTexutre
-
+	
+	if hasItemBool == true:
+	
+		if itemTag == "Bottle" && inventoryTag == "Bottle":
+			inventoryTag = "Acid Bottle"
+			itemName.text = inventoryTag
+			itemImageTexutre = AcidBottleSprite
+			itemSprite.texture = AcidBottleSprite
+			
+		elif itemTag == "Acid Bottle" && inventoryTag == "Acid Bottle":
+			inventoryTag = "Chemical Solution"
+			itemName.text = inventoryTag
+			itemImageTexutre = ChemicalSolutionSprite
+			itemSprite.texture = ChemicalSolutionSprite
+			get_tree().call_group("InventorySpot", "itemGrabbed", "Chemical Solution")
+			
+			
+		elif itemTag == "Pill Bottle" && inventoryTag == "Pill Bottle":
+			inventoryTag = "Crushed Pills"
+			itemName.text = inventoryTag
+			itemImageTexutre = crushedPills
+			itemSprite.texture = crushedPills
+			
+		#check if item picked up should be put here.
+		elif itemTag == inventoryTag:
+			hasItemBool = false
+			itemUsedBool = true
+			#Change image to - Item Silhouette
+			itemSprite.modulate.a = 0.3
+			itemSprite.texture = itemImageTexutre
+	
 func itemGrabbed(itemTag):
 	#check if item picked up should be put here.
 	if itemTag == inventoryTag:
@@ -115,10 +138,12 @@ func _on_mouse_entered():
 	#Only allow dragging if in quick inventory
 	if quickInventorySlot:
 		mouseOverQuickSlot = true
+		GlobalScript.usingQuickInventory = true
 		
 	# Do this only if its a normal inventory slot
 	elif mergeItemSlot:
 		mouseOverMergeSlot = true
+		GlobalScript.usingQuickInventory = false
 	
 	elif normalSlot:
 		mouseOverNormalSlot = true
@@ -145,3 +170,4 @@ func clear():
 	inventoryTag = ""
 	itemImageTexutre = null
 	itemSprite.texture = null
+
