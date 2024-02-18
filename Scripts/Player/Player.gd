@@ -10,9 +10,11 @@ class_name Player
 @export var dialogue: Dialogue
 @onready var movement: MovementController = get_node("MovementController")
 
-var walking = false
-var idle = true
+@onready var tree = $Mesh/Protagonist/AnimationTree
 
 func _ready():
 	$Speech.speaker_name = name
 	
+func _process(delta):
+	tree.set("parameters/conditions/Walking", GlobalScript.playerWalking)
+	tree.set("parameters/conditions/Idle", GlobalScript.playerIdle)

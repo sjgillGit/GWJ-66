@@ -21,7 +21,7 @@ scene_builder = ExtResource("2_fxykp")
 
 [node name="Objects" type="Node3D" parent="."]
 
-[node name="Padlock key" parent="Objects" instance=ExtResource("3_x18na")]
+[node name="Key" parent="Objects" instance=ExtResource("3_x18na")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.577431, 8)
 
 [node name="Farmstead" parent="Objects" instance=ExtResource("4_vye4c")]
