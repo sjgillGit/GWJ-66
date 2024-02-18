@@ -37,13 +37,13 @@ func _ready():
 	get_tree().call_group("InventorySpot", "itemGrabbed", "Suitcase")
 	
 	# For Testing
-	get_tree().call_group("InventorySpot", "itemGrabbed", "Key")
-	get_tree().call_group("InventorySpot", "itemGrabbed", "Wrench")
-	get_tree().call_group("InventorySpot", "itemGrabbed", "Hammer")
-	get_tree().call_group("InventorySpot", "itemGrabbed", "Chain Key")
-	get_tree().call_group("InventorySpot", "itemGrabbed", "Bottle")
-	get_tree().call_group("InventorySpot", "itemGrabbed", "Pill Bottle")
-	get_tree().call_group("InventorySpot", "itemGrabbed", "Muddler")
+	#get_tree().call_group("InventorySpot", "itemGrabbed", "Key")
+	#get_tree().call_group("InventorySpot", "itemGrabbed", "Wrench")
+	#get_tree().call_group("InventorySpot", "itemGrabbed", "Hammer")
+	#get_tree().call_group("InventorySpot", "itemGrabbed", "Chain Key")
+	#get_tree().call_group("InventorySpot", "itemGrabbed", "Bottle")
+	#get_tree().call_group("InventorySpot", "itemGrabbed", "Pill Bottle")
+	#get_tree().call_group("InventorySpot", "itemGrabbed", "Muddler")
 	
 func _process(delta):
 	if Input.is_action_just_pressed("OpenInventory"):

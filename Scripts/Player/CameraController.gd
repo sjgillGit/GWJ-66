@@ -16,8 +16,8 @@ const RAY_LENGTH = 2000
 
 func _ready():
 	assert(player != null, "Please select player in camera")
-	await get_tree().create_timer(0.1).timeout
-	player_movement = player.movement
+	#await get_tree().create_timer(0.1).timeout
+	player_movement = player.get_node("MovementController")
 
 
 func _process(_delta) -> void:

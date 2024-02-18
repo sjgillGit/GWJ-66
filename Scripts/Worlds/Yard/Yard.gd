@@ -16,7 +16,7 @@ func update_objects():
 
 func connect_objects_signals():
 	for object in $Objects.get_children():
-		if object.has_method("picked"):
+		if object.has_signal("picked"):
 			object.picked.connect(_on_object_picked)
 
 
