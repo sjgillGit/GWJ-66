@@ -122,7 +122,7 @@ func itemUsed(itemTag):
 			hasItemBool = false
 			itemUsedBool = true
 			#Change image to - Item Silhouette
-			itemSprite.modulate.a = 0.3
+			itemSprite.modulate.a = 0.2
 			itemSprite.texture = itemImageTexutre
 	
 func itemGrabbed(itemTag):
