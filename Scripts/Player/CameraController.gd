@@ -7,20 +7,22 @@ extends Camera3D
 
 class_name CameraController
 
-@export var player: Player
+@export var player: Player : set = set_player
 var player_movement: MovementController
 var is_moving: bool
 
 const RAY_LENGTH = 2000
 
 
-func _ready():
-	assert(player != null, "Please select player in camera")
-	#await get_tree().create_timer(0.1).timeout
-	player_movement = player.get_node("MovementController")
+func set_player(new_player:Player):
+	player = new_player
+	if player:
+		player_movement = player.get_node("MovementController")
 
 
 func _process(_delta) -> void:
+	if !player_movement:
+		return
 	if Input.is_action_just_pressed("ui_mouse_left"):
 		var new_target = get_mouse_world_position()
 		if new_target != Vector3.ZERO:
