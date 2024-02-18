@@ -19,6 +19,12 @@ func set_player(new_player:Player):
 	player = new_player
 	if player:
 		player_movement = player.get_node("MovementController")
+    
+func _ready():
+	player = GlobalScript.player
+	assert(player != null, "Please select player in camera")
+	#await get_tree().create_timer(0.1).timeout
+	player_movement = player.get_node("MovementController")
 
 
 func _process(_delta) -> void:

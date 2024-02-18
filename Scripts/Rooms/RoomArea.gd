@@ -19,10 +19,11 @@ signal player_enter
 
 
 func _ready():
+	
 	set_process(false)
 	assert(room_camera_pos_node != null, "Set Room Camera Pos Node")
 	camera_pos = room_camera_pos_node.global_position
-	main_camera = get_tree().root.get_camera_3d()
+	main_camera = $"../../../CameraController"#get_tree().root.get_camera_3d()
 	assert(main_camera is CameraController, "Set CameraController script to main camera")
 
 

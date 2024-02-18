@@ -13,16 +13,20 @@ script = ExtResource("1_to4ox")
 
 [node name="Box" parent="." instance=ExtResource("2_siepk")]
 layout_mode = 2
-text = "Voice"
+text = "Both"
 
 [node name="Box2" parent="." instance=ExtResource("2_siepk")]
 layout_mode = 2
-text = "Text"
+text = "Voice"
 
 [node name="Box3" parent="." instance=ExtResource("2_siepk")]
 layout_mode = 2
-text = "Both"
+text = "Text"
 
 [node name="Space" type="Control" parent="."]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+
+[connection signal="box_toggled_on" from="Box" to="." method="_on_box_3_box_toggled_on"]
+[connection signal="box_toggled_on" from="Box2" to="." method="_on_box_box_toggled_on"]
+[connection signal="box_toggled_on" from="Box3" to="." method="_on_box_2_box_toggled_on"]

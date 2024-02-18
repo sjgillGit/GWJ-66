@@ -38,7 +38,7 @@ func _on_quit_game_pressed():
 
 func setSettings():
 	AudioServer.set_bus_volume_db(speechBusID, linear_to_db(speechVolume.value))
-	AudioServer.set_bus_mute(speechBusID, speechVolume.value < 0.05)
+	AudioServer.set_bus_mute(speechBusID, speechVolume.value < 0.05 || GlobalScript.textToggled)
 	
 	AudioServer.set_bus_volume_db(musicBusID, linear_to_db(musicvolume.value))
 	AudioServer.set_bus_mute(musicBusID, musicvolume.value < 0.05)

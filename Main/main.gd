@@ -67,6 +67,7 @@ func create_new_player():
 	if current_player:
 		current_player.queue_free()
 	current_player = player_scene.instantiate()
+	GlobalScript.player = current_player
 
 
 func _on_portal_entered(enterence:String, destination:String):

@@ -25,11 +25,14 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if !has_target: 
-		player.walking = false
-		player.idle = true
+		GlobalScript.playerWalking = false
+		GlobalScript.playerIdle = true
 	else:
-		player.walking = true
-		player.idle = false
+		GlobalScript.playerWalking = true
+		GlobalScript.playerIdle = false
+	
+	look_at(nav_agent.get_next_path_position())
+		
 	
 	
 	if nav_agent.is_navigation_finished(): 
@@ -38,7 +41,8 @@ func _physics_process(delta: float) -> void:
 	
 	var dir = Vector3()
 	dir = nav_agent.get_next_path_position() - global_position
-	dir = dir.normalized()
 	
+	dir = dir.normalized()
 	player.velocity = player.velocity.lerp(dir * speed, accel * delta)
+	
 	player.move_and_slide()

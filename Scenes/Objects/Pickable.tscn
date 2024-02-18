@@ -7,7 +7,7 @@
 height = 0.5
 radius = 1.0
 
-[node name="Padlock key" type="Area3D"]
+[node name="Key" type="Area3D"]
 script = ExtResource("1_35a46")
 dialogue = ExtResource("2_dx7sj")
 
