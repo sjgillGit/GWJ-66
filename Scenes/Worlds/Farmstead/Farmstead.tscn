@@ -1,5 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://53menmottbh7"]
 
+[ext_resource type="Script" path="res://Scripts/Worlds/Farmstead.gd" id="1_eive2"]
 [ext_resource type="PackedScene" uid="uid://3bxy2fwatyun" path="res://Assets/Scene Base/Farmstead/FarmsteadScene.glb" id="1_pkpo0"]
 [ext_resource type="PackedScene" uid="uid://ejjb41kquy3p" path="res://Scenes/Objects/Portal.tscn" id="1_rl21s"]
 [ext_resource type="Script" path="res://Scripts/Player/CameraController.gd" id="3_t3bum"]
@@ -26,15 +27,28 @@ size = Vector3(60.4967, 3.15527, 57.357)
 size = Vector3(67.8246, 3.15527, 45.4061)
 
 [node name="Farmstead" type="Node3D"]
+script = ExtResource("1_eive2")
 
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Yard" parent="Objects" instance=ExtResource("1_rl21s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26075, 104.075)
 
+[node name="Stables" parent="Objects" instance=ExtResource("1_rl21s")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 52.6802, 1, 59.4047)
+
+[node name="ServentsQuarters" parent="Objects" instance=ExtResource("1_rl21s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44289, 1.76458, -91.6793)
+
+[node name="CameraController" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 86, 94)
+script = ExtResource("3_t3bum")
+
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.85126, 0.524744, 0, -0.524744, 0.85126, 0, 125.37, 0)
 light_energy = 3.0
+shadow_enabled = true
+directional_shadow_max_distance = 300.0
 
 [node name="CameraController" type="Camera3D" parent="."]
 transform = Transform3D(1, 1.49012e-08, 2.58096e-08, -2.98023e-08, 0.5, 0.866025, 1.24345e-14, -0.866025, 0.5, -27.0901, 22.7717, 42.9209)

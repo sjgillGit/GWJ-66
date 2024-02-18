@@ -5,7 +5,9 @@ class_name Main
 @export var player_scene:PackedScene
 @export var portals_router:PortalsRouter
 @onready var world_scenes:Dictionary = {"Yard":load("res://Scenes/Worlds/Yard.tscn")
-, "Farmstead":load("res://Scenes/Worlds/Farmstead/Farmstead.tscn")}
+, "Farmstead":load("res://Scenes/Worlds/Farmstead/Farmstead.tscn")
+, "Stables":load("res://Scenes/Worlds/Stables.tscn")
+, "ServentsQuarters":load("res://Scenes/Worlds/serventsQuartersInterior.tscn")}
 static var portal_timer:Timer
 var current_world:Node3D
 var current_player:CharacterBody3D
@@ -29,10 +31,9 @@ func _connect_world_signals():
 func create_world(new_world:PackedScene, arrive_portal_name:String):
 	current_world = new_world.instantiate()
 	create_new_player()
-	if current_player:
-		setup_arrived_player()
+	setup_arrived_player()
 	if is_first_world:
-		setup_first_world()
+		set_player_position(Vector3(-12, 1, 0))
 		is_first_world = false
 	$World.add_child(current_world)
 	current_world.add_child(current_player)
@@ -40,12 +41,9 @@ func create_world(new_world:PackedScene, arrive_portal_name:String):
 		set_player_position(get_portal_position(arrive_portal_name))
 
 
-func setup_first_world():
-	current_world.get_node("CameraController").player = current_player
-	current_player.position = Vector3(-12, 1, 0)
-
-
 func change_world(new_world:PackedScene, arrive_portal_name:String=""):
+	if current_world: # get past location name
+		arrive_portal_name = current_world.name
 	NodeTools.delete_all_children($World)
 	create_world(new_world, arrive_portal_name)
 

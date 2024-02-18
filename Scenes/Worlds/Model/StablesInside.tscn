@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://btpl4v1ufukj4"]
+
+[ext_resource type="PackedScene" uid="uid://lkyfd4f0d0vy" path="res://Assets/Scene Base/Stables/StableInsides.glb" id="1_1fusa"]
+
+[node name="StablesInside" instance=ExtResource("1_1fusa")]
