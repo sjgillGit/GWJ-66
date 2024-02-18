@@ -25,3 +25,24 @@ func uncheck_other_boxes(checked_box_index:int):
 		if child is BoxContainer:
 			if child.get_index() != checked_box_index:
 				child.get_node("Check").button_pressed = false
+
+
+func _on_box_box_toggled_on(index):
+	GlobalScript.textToggled = false
+	GlobalScript.bothToggled = false
+	
+	GlobalScript.voiceToggled = true
+
+
+func _on_box_2_box_toggled_on(index):
+	GlobalScript.textToggled = true
+	GlobalScript.bothToggled = false
+	
+	GlobalScript.voiceToggled = false
+
+
+func _on_box_3_box_toggled_on(index):
+	GlobalScript.textToggled = false
+	GlobalScript.bothToggled = true
+	
+	GlobalScript.voiceToggled = false

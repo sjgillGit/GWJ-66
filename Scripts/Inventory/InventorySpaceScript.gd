@@ -110,13 +110,15 @@ func itemUsed(itemTag):
 			itemSprite.texture = ChemicalSolutionSprite
 			get_tree().call_group("InventorySpot", "itemGrabbed", "Chemical Solution")
 			
-			
 		elif itemTag == "Pill Bottle" && inventoryTag == "Pill Bottle":
 			inventoryTag = "Crushed Pills"
 			itemName.text = inventoryTag
 			itemImageTexutre = crushedPills
 			itemSprite.texture = crushedPills
 			
+		elif itemTag == "Knife":
+			GlobalScript.playerUsingKnife = true
+		
 		#check if item picked up should be put here.
 		elif itemTag == inventoryTag:
 			hasItemBool = false

@@ -165,7 +165,6 @@ func mergeRecipees():
 		createdItem = "Chemical Substance"
 	elif "Hammer" in items and "Wrench" in items and "Tool Box" in items and "Horse Shoe" in items:
 		createdItem = "Tool Kit"
-		print("worked")
 	
 	if createdItem != "":
 		# Create item.
