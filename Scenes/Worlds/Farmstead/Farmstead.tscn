@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://53menmottbh7"]
+[gd_scene load_steps=12 format=3 uid="uid://53menmottbh7"]
 
 [ext_resource type="Script" path="res://Scripts/Worlds/Farmstead.gd" id="1_eive2"]
 [ext_resource type="PackedScene" uid="uid://3bxy2fwatyun" path="res://Assets/Scene Base/Farmstead/FarmsteadScene.glb" id="1_pkpo0"]
@@ -50,7 +50,7 @@ light_energy = 3.0
 shadow_enabled = true
 directional_shadow_max_distance = 300.0
 
-[node name="CameraController" type="Camera3D" parent="."]
+[node name="CameraController2" type="Camera3D" parent="."]
 transform = Transform3D(1, 1.49012e-08, 2.58096e-08, -2.98023e-08, 0.5, 0.866025, 1.24345e-14, -0.866025, 0.5, -27.0901, 22.7717, 42.9209)
 script = ExtResource("3_t3bum")
 

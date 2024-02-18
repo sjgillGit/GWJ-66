@@ -60,12 +60,16 @@ func set_type(new_type:Type):
 func _ready():
 	self.type = type
 
+
 func set_object_name(new_name:String):
 	name = new_name
 	object_name = new_name
 
+
 func _on_body_entered(body):
-	dialogue.make_speak("Player", "I picked up the key!!!")
+	if type == Type.GLASS_BOTTLE:
+		dialogue.make_speak(
+			"Player", "I found this empty little glass bottle, maybe I can put something in it…")
 	picked.emit(object_name)
 	get_tree().call_group("InventorySpot", "itemGrabbed", object_name)
 	GlobalScript.playerPickingUp = true

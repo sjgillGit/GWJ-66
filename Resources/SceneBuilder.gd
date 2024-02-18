@@ -6,7 +6,7 @@ signal list_changed
 
 
 @export var player_scene:PackedScene = load("res://Scenes/Player/Player.tscn")
-var worlds_objects:Dictionary = {"Yard":["Padlock key", "Farmstead"], "Farmstead":[], "Stables":[]}
+var worlds_objects:Dictionary = {"Yard":["Bottle", "Farmstead", "AcidPool"], "Farmstead":[], "Stables":[]}
 
 
 func set_world_items(objects_node:Node, scene_name:String):
