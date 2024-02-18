@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://vuskdoal0c1q"
+path="res://.godot/imported/Despair (Despair-03).wav-cbb59a9d332fb4b05ac2dcd02ad3c257.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Processed VO/Despair (Despair-03).wav"
+dest_files=["res://.godot/imported/Despair (Despair-03).wav-cbb59a9d332fb4b05ac2dcd02ad3c257.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

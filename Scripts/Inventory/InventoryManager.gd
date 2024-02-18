@@ -21,6 +21,7 @@ var mergingItemTag = ""
 var itemOne = ""
 var itemTwo = ""
 var itemThree = ""
+var itemFour = ""
 
 var merged = 0
 
@@ -36,17 +37,8 @@ func _ready():
 	get_tree().call_group("InventorySpot", "itemGrabbed", "Knife")
 	get_tree().call_group("InventorySpot", "itemGrabbed", "Suitcase")
 	
-	# For Testing
-	#get_tree().call_group("InventorySpot", "itemGrabbed", "Key")
-	#get_tree().call_group("InventorySpot", "itemGrabbed", "Wrench")
-	#get_tree().call_group("InventorySpot", "itemGrabbed", "Hammer")
-	#get_tree().call_group("InventorySpot", "itemGrabbed", "Chain Key")
-	#get_tree().call_group("InventorySpot", "itemGrabbed", "Bottle")
-	#get_tree().call_group("InventorySpot", "itemGrabbed", "Pill Bottle")
-	#get_tree().call_group("InventorySpot", "itemGrabbed", "Muddler")
-	
 func _process(delta):
-	if Input.is_action_just_pressed("OpenInventory"):
+	if Input.is_action_just_pressed("OpenInventory") && !GlobalScript.gamePaused:
 		if inventoryOpen:
 			get_tree().paused = false
 			Inventory.hide()
@@ -56,12 +48,19 @@ func _process(delta):
 			Inventory.show()
 			inventoryOpen = true
 		
+	if GlobalScript.gamePaused:
+		Inventory.hide()
+		quickInventory.hide()
+		inventoryOpen = false
+		openQuickButton.hide()
+		quickInventoryOpen = false
+		
 	if inventoryOpen:
 		quickInventory.hide()
 		openQuickButton.hide()
 		quickInventoryOpen = false
 	
-	if !inventoryOpen && !quickInventoryOpen:
+	if !inventoryOpen && !quickInventoryOpen && !GlobalScript.gamePaused:
 		openQuickButton.show()
 	else:
 		openQuickButton.hide()
@@ -113,6 +112,12 @@ func showDescription(tag,has,used):
 			itemDescription.text = "[center]"+"Good job, you've made something, doesn't smell very nice, but maybe it'll come in use?"+"[/center]"
 		elif tag == "Muddler":
 			itemDescription.text = "[center]"+"Looks like it could be used to crush something, or hit something. Do whatever you like with it."+"[/center]"
+		elif tag == "Horse Shoe":
+			itemDescription.text = "[center]"+"Looks like a horse forgot one of thier shoes."+"[/center]"
+		elif tag == "Tool Box":
+			itemDescription.text = "[center]"+"Nice Box to hold your tools, rather then just keeping them in this case."+"[/center]"
+		elif tag == "Tool Kit":
+			itemDescription.text = "[center]"+"Holds all of of your tools in one organised place."+"[/center]"
 			
 func hideDescription():
 	# set description and name to blank.
@@ -127,6 +132,8 @@ func mergeItems(tag):
 		itemTwo = tag
 	elif merged == 3:
 		itemThree = tag
+	elif merged == 4:
+		itemFour = tag
 	merged += 1
 	
 	mergeRecipees()
@@ -148,7 +155,7 @@ func mergedItems():
 func mergeRecipees():
 	#Go through all the recipees.
 	
-	var items = [itemOne, itemTwo, itemThree]
+	var items = [itemOne, itemTwo, itemThree, itemFour]
 	
 	var createdItem = ""
 	
@@ -156,7 +163,9 @@ func mergeRecipees():
 		createdItem = "Crushed Pills"
 	elif "Crushed Pills" in items and "Acid Bottle" in items:
 		createdItem = "Chemical Substance"
-	#... Add more recipees here
+	elif "Hammer" in items and "Wrench" in items and "Tool Box" in items and "Horse Shoe" in items:
+		createdItem = "Tool Kit"
+		print("worked")
 	
 	if createdItem != "":
 		# Create item.
@@ -169,7 +178,6 @@ func mergeRecipees():
 
 func hideError():
 	error.hide()
-
 
 func _on_panel_mouse_entered():
 	GlobalScript.usingQuickInventory = true
