@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyop00txa4gcj"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/Interactable.gd" id="1_q0tkd"]
+[ext_resource type="PackedScene" uid="uid://iqehmw4q1kqn" path="res://Scenes/Worlds/Model/AcidpoolScene.tscn" id="2_13hns"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8gfyx"]
+height = 0.293031
+radius = 2.81426
+
+[node name="Interactable" type="Area3D"]
+script = ExtResource("1_q0tkd")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_8gfyx")
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="acidpool" parent="Mesh" instance=ExtResource("2_13hns")]

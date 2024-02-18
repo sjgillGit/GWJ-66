@@ -37,8 +37,6 @@ func _ready():
 	get_tree().call_group("InventorySpot", "itemGrabbed", "Knife")
 	get_tree().call_group("InventorySpot", "itemGrabbed", "Suitcase")
 	
-	
-	
 func _process(delta):
 	if Input.is_action_just_pressed("OpenInventory") && !GlobalScript.gamePaused:
 		if inventoryOpen:
