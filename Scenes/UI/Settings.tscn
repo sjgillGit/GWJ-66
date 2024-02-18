@@ -1,23 +1,85 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1pjos5dt4os7"]
+[gd_scene load_steps=8 format=3 uid="uid://c1pjos5dt4os7"]
 
+[ext_resource type="Script" path="res://Scripts/UI/SettingsManager.gd" id="1_4f1fy"]
 [ext_resource type="PackedScene" uid="uid://6ja2fj6oliq" path="res://Scenes/UI/VolumeOption/Option.tscn" id="1_o8imr"]
+[ext_resource type="Texture2D" uid="uid://d2beeh3xnfls1" path="res://Gui/Images/ui_assets/background_panel_2.png" id="1_ufiek"]
 [ext_resource type="PackedScene" uid="uid://c8oxpustjvnhn" path="res://Scenes/UI/VolumeOption/ControlTypes/Check.tscn" id="2_4mq7h"]
+[ext_resource type="Texture2D" uid="uid://dkgsyh3cnhoif" path="res://Gui/Images/ui_assets/button_normal.png" id="4_k1wm2"]
+[ext_resource type="Texture2D" uid="uid://diq3gi3ojsqvr" path="res://Gui/Images/ui_assets/button_pressed.png" id="5_8w7tu"]
+[ext_resource type="Texture2D" uid="uid://cux8s4rve58fk" path="res://Gui/Images/ui_assets/button_disables.png" id="6_1ma6r"]
 
 [node name="Settings" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchor_left = 0.1
 anchor_top = 0.1
 anchor_right = 0.9
 anchor_bottom = 0.9
+offset_left = -0.200005
+offset_top = 0.199997
+offset_right = -0.200073
+offset_bottom = 0.200012
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_4f1fy")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.125
+anchor_top = -0.127
+anchor_right = 1.127
+anchor_bottom = 1.13
+offset_left = 0.199982
+offset_top = -0.163193
+offset_right = 0.356934
+offset_bottom = 0.207947
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -478.8
+offset_top = -232.2
+offset_right = 473.2
+offset_bottom = 196.8
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ufiek")
+stretch_mode = 1
+
+[node name="optionsText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.8
+offset_top = -217.2
+offset_right = 452.2
+offset_bottom = -173.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]OPTIONS[/center]"
 
 [node name="Options" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.8
+offset_top = -157.2
+offset_right = 461.2
+offset_bottom = 18.8
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -40,3 +102,66 @@ text = "Music volume"
 layout_mode = 2
 text = "Dialogue format"
 control_type = ExtResource("2_4mq7h")
+
+[node name="ResumeGame" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.489
+anchor_top = 0.5
+anchor_right = 0.489
+anchor_bottom = 0.5
+offset_left = -100.662
+offset_top = 57.8
+offset_right = 100.338
+offset_bottom = 102.8
+texture_normal = ExtResource("4_k1wm2")
+texture_pressed = ExtResource("5_8w7tu")
+texture_disabled = ExtResource("6_1ma6r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResumeGame"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 4.0
+offset_right = 190.0
+offset_bottom = 33.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]Resume Game[/center]"
+scroll_active = false
+
+[node name="QuitGame" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.489
+anchor_top = 0.5
+anchor_right = 0.489
+anchor_bottom = 0.5
+offset_left = -100.662
+offset_top = 117.8
+offset_right = 100.338
+offset_bottom = 162.8
+texture_normal = ExtResource("4_k1wm2")
+texture_pressed = ExtResource("5_8w7tu")
+texture_disabled = ExtResource("6_1ma6r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="QuitGame"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 4.0
+offset_right = 190.0
+offset_bottom = 33.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]Quit Game[/center]"
+scroll_active = false
+
+[connection signal="pressed" from="ResumeGame" to="." method="_on_resume_game_pressed"]
+[connection signal="pressed" from="QuitGame" to="." method="_on_quit_game_pressed"]

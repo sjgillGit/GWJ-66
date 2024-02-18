@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b81m2hjafw6vp"
+path="res://.godot/imported/Horseshoe.obj-964f1284463be4f9d20d5bca9950380c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Horseshoe.obj-964f1284463be4f9d20d5bca9950380c.mesh"]
+
+source_file="res://Assets/Inventory Objects/Horseshoe.obj"
+dest_files=["res://.godot/imported/Horseshoe.obj-964f1284463be4f9d20d5bca9950380c.mesh", "res://.godot/imported/Horseshoe.obj-964f1284463be4f9d20d5bca9950380c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

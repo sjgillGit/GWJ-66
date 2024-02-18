@@ -22,7 +22,15 @@ func set_target(new_target: Vector3) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if !has_target: return
+	
+	
+	if !has_target: 
+		player.walking = false
+		player.idle = true
+	else:
+		player.walking = true
+		player.idle = false
+	
 	
 	if nav_agent.is_navigation_finished(): 
 		has_target = false

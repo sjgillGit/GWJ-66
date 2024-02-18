@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmexjlj0ilgtd"]
+[gd_scene load_steps=7 format=3 uid="uid://cmexjlj0ilgtd"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_wnj6j"]
 [ext_resource type="PackedScene" uid="uid://blnork1vhf7o4" path="res://Scenes/Player/Player.tscn" id="2_asgyk"]
 [ext_resource type="Resource" uid="uid://pkv0yfais0kt" path="res://Resources/PortalsRouter.tres" id="2_md4uj"]
 [ext_resource type="PackedScene" uid="uid://c1pjos5dt4os7" path="res://Scenes/UI/Settings.tscn" id="2_tx6qg"]
+[ext_resource type="PackedScene" uid="uid://c01d5vioi6388" path="res://Gui/Inventory.tscn" id="5_06i6v"]
+[ext_resource type="PackedScene" uid="uid://cvs0j4d7u3l36" path="res://Scenes/UI/main_menu.tscn" id="6_q6ol0"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_wnj6j")
@@ -15,6 +17,11 @@ portals_router = ExtResource("2_md4uj")
 [node name="UIs" type="CanvasLayer" parent="."]
 
 [node name="Settings" parent="UIs" instance=ExtResource("2_tx6qg")]
+visible = false
+
+[node name="Inventory" parent="UIs" instance=ExtResource("5_06i6v")]
+
+[node name="Main Menu" parent="UIs" instance=ExtResource("6_q6ol0")]
 visible = false
 
 [node name="PortalTimer" type="Timer" parent="."]
