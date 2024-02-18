@@ -1,14 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://chobcnge5osgq"]
+[gd_scene load_steps=4 format=3 uid="uid://chobcnge5osgq"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/Pickable.gd" id="1_35a46"]
-[ext_resource type="PackedScene" uid="uid://4s1bl7da7cnw" path="res://Assets/Inventory Objects/Key.glb" id="1_xdlk6"]
 [ext_resource type="Resource" uid="uid://dse2auigeblye" path="res://Resources/Dialogue.tres" id="2_dx7sj"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ptumh"]
 height = 0.5
 radius = 1.0
 
-[node name="Pickable" type="Area3D"]
+[node name="Padlock key" type="Area3D"]
 script = ExtResource("1_35a46")
 dialogue = ExtResource("2_dx7sj")
 
@@ -16,7 +15,5 @@ dialogue = ExtResource("2_dx7sj")
 shape = SubResource("CylinderShape3D_ptumh")
 
 [node name="Mesh" type="Node3D" parent="."]
-
-[node name="Key" parent="Mesh" instance=ExtResource("1_xdlk6")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

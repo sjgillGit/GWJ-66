@@ -51,7 +51,6 @@ func _ready():
 func set_object_name(new_name:String):
 	name = new_name
 	object_name = new_name
-	print(object_name)
 
 
 func _on_body_entered(body):
