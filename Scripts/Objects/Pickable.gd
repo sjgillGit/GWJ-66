@@ -65,9 +65,10 @@ func set_object_name(new_name:String):
 	object_name = new_name
 
 func _on_body_entered(body):
-	dialogue.make_speak("Player", "I picked up the key!!!")
-	picked.emit(object_name)
-	get_tree().call_group("InventorySpot", "itemGrabbed", object_name)
-	GlobalScript.playerPickingUp = true
+	if body.name == "Player":
+		dialogue.make_speak("Player", "I picked up the key!!!")
+		picked.emit(object_name)
+		get_tree().call_group("InventorySpot", "itemGrabbed", object_name)
+		GlobalScript.playerPickingUp = true
 
 
