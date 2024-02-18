@@ -1,4 +1,5 @@
 extends Resource
+
 class_name SceneBuilder
 
 
@@ -6,7 +7,9 @@ signal list_changed
 
 
 @export var player_scene:PackedScene = load("res://Scenes/Player/Player.tscn")
-var worlds_objects:Dictionary = {"Yard":["Padlock key", "Farmstead"], "Farmstead":[], "Stables":[]}
+var worlds_objects:Dictionary = {"Yard":["Key", "Muddler", "Farmstead"], "Farmstead":["Chain Key", "Hammer" 
+, "Wrench", "Tool Box", "Horse Shoe", "Bottle", "ServentsQuarters"], "Stables":[], 
+"ServentsQuarters":["Pill Bottle", "Farmstead"]}
 
 
 func set_world_items(objects_node:Node, scene_name:String):

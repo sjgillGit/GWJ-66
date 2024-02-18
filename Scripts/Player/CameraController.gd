@@ -19,7 +19,7 @@ func set_player(new_player:Player):
 	player = new_player
 	if player:
 		player_movement = player.get_node("MovementController")
-    
+	
 func _ready():
 	player = GlobalScript.player
 	assert(player != null, "Please select player in camera")

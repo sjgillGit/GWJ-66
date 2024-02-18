@@ -13,7 +13,6 @@ func _ready():
 func update_objects():
 	scene_builder.set_world_items($Objects, "Yard")
 
-
 func connect_objects_signals():
 	for object in $Objects.get_children():
 		if object.has_signal("picked"):

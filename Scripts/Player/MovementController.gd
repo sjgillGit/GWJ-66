@@ -31,9 +31,6 @@ func _physics_process(delta: float) -> void:
 		GlobalScript.playerWalking = true
 		GlobalScript.playerIdle = false
 	
-	look_at(nav_agent.get_next_path_position())
-		
-	
 	
 	if nav_agent.is_navigation_finished(): 
 		has_target = false

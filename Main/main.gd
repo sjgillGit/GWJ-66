@@ -31,14 +31,15 @@ func _connect_world_signals():
 func create_world(new_world:PackedScene, arrive_portal_name:String):
 	current_world = new_world.instantiate()
 	create_new_player()
+	if current_player and arrive_portal_name != "":
+		set_player_position(get_portal_position(arrive_portal_name))
 	setup_arrived_player()
 	if is_first_world:
 		set_player_position(Vector3(-12, 1, 0))
 		is_first_world = false
 	$World.add_child(current_world)
 	current_world.add_child(current_player)
-	if current_player and arrive_portal_name != "":
-		set_player_position(get_portal_position(arrive_portal_name))
+
 
 
 func change_world(new_world:PackedScene, arrive_portal_name:String=""):
