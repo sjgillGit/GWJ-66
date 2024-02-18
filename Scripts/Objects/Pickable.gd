@@ -67,6 +67,8 @@ func set_object_name(new_name:String):
 
 
 func _on_body_entered(body):
+	if body.name != "Player":
+    return
 	if type == Type.GLASS_BOTTLE:
 		dialogue.make_speak(
 			"Player", "I found this empty little glass bottle, maybe I can put something in it…")
