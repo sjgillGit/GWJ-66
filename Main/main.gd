@@ -4,6 +4,7 @@ class_name Main
 
 @export var player_scene:PackedScene
 @export var portals_router:PortalsRouter
+@export var scene_interaction:SceneInteraction
 @onready var world_scenes:Dictionary = {"Yard":load("res://Scenes/Worlds/Yard.tscn")
 , "Farmstead":load("res://Scenes/Worlds/Farmstead/Farmstead.tscn")
 , "Stables":load("res://Scenes/Worlds/Stables.tscn")
@@ -17,6 +18,7 @@ var is_first_world:bool = true
 func _ready():
 	portal_timer = $PortalTimer
 	connect_portals_router_signals()
+	connnect_scene_interaction_signals()
 	change_world(world_scenes["Yard"], "")
 
 
@@ -24,8 +26,8 @@ func connect_portals_router_signals():
 	portals_router.portal_entered.connect(_on_portal_entered)
 
 
-func _connect_world_signals():
-	pass
+func connnect_scene_interaction_signals():
+	scene_interaction.items_combined.connect(_on_items_combined)
 
 
 func create_world(new_world:PackedScene, arrive_portal_name:String):
@@ -71,9 +73,15 @@ func create_new_player():
 	GlobalScript.player = current_player
 
 
+func _on_items_combined(item_name:String):
+	print("combo items")
+	get_tree().call_group("InventorySpot", "itemUsed", item_name)
+
+
 func _on_portal_entered(enterence:String, destination:String):
 	change_world(world_scenes[destination], enterence)
 	
 
 func _on_portal_timer_timeout():
 	portals_router.can_use_portal = true
+

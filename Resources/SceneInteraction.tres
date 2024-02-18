@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="SceneInteraction" load_steps=2 format=3 uid="uid://b0gjir8vaqifa"]
+
+[ext_resource type="Script" path="res://Resources/SceneInteraction.gd" id="1_54sa4"]
+
+[resource]
+script = ExtResource("1_54sa4")

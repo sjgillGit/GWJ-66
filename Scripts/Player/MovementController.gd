@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		GlobalScript.playerWalking = true
 		GlobalScript.playerIdle = false
+    
+	var next_pos = nav_agent.get_next_path_position()
 	
 	
 	if nav_agent.is_navigation_finished(): 

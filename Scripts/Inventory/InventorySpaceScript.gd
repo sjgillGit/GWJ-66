@@ -16,6 +16,7 @@ var crushedPills = preload("res://Gui/Images/ItemImages/Chemical Solution/Crushe
 
 #Merging Items
 @export var mergeItemSlot = false
+@export var scene_interaction:SceneInteraction
 var mouseOverMergeSlot = false
 var merged = 0
 
@@ -66,6 +67,7 @@ func _physics_process(_delta):
 			Inventory.mergingItemSprite = itemImageTexutre
 			Inventory.mergingItemTag = inventoryTag
 			Inventory.dragging = true
+			scene_interaction.is_dragging_item = true
 	else:
 		itemSprite.global_position = spritePos.global_position
 		
@@ -86,22 +88,28 @@ func checkDragging():
 		if Input.is_action_just_pressed("ui_mouse_left"):
 			if mouseOverQuickSlot || mouseOverNormalSlot:
 				dragging = true
+				scene_interaction.is_dragging_item = true
+				scene_interaction.dragged_item = inventoryTag
 				if !quickInventorySlot:
 					Inventory.dragging = true
 			elif !quickInventorySlot:
 				Inventory.dragging = false
 		elif Input.is_action_just_released("ui_mouse_left"):
 			dragging = false
+			scene_interaction.is_dragging_item = false
 
 func itemUsed(itemTag):
 	
 	if hasItemBool == true:
-	
 		if itemTag == "Bottle" && inventoryTag == "Bottle":
 			inventoryTag = "Acid Bottle"
-			itemName.text = inventoryTag
+			if !quickInventorySlot:
+				itemName.text = inventoryTag
 			itemImageTexutre = AcidBottleSprite
 			itemSprite.texture = AcidBottleSprite
+			if quickInventorySlot:
+				itemImageTexutre = null
+				itemSprite.texture = null
 			
 		elif itemTag == "Acid Bottle" && inventoryTag == "Acid Bottle":
 			inventoryTag = "Chemical Solution"

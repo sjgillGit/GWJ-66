@@ -34,7 +34,8 @@ func _process(_delta) -> void:
 		var new_target = get_mouse_world_position()
 		if new_target != Vector3.ZERO:
 			player_movement.set_target(new_target)
-	get_mouse_world_position(true)
+	if scene_interaction.is_dragging_item:
+		get_mouse_world_position(true)
 
 
 func get_mouse_world_position(is_interaction:bool=false) -> Vector3:
@@ -44,11 +45,11 @@ func get_mouse_world_position(is_interaction:bool=false) -> Vector3:
 	var ray_end = ray_origin + project_ray_normal(mouse_pos) * RAY_LENGTH
 	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
 	query.collide_with_areas = is_interaction
+	query.collision_mask = 3
 	var result = state.intersect_ray(query)
+	if result.has("collider") and is_interaction:
+		if result.collider is Area3D:
+			scene_interaction.current_raycasted_object = result.collider
 	if result && result.has("position"):
 		return result.position
-	if result.has("collider"):
-		if result.collider is Area3D and is_interaction:
-			scene_interaction.current_raycasted_object = result.collider
-			print(result.collider)
 	return Vector3.ZERO
