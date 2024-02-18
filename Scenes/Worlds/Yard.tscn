@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://code8sthm2ccw"]
+[gd_scene load_steps=14 format=3 uid="uid://code8sthm2ccw"]
 
 [ext_resource type="Script" path="res://Scripts/Worlds/Yard/Yard.gd" id="1_im1yx"]
 [ext_resource type="Resource" uid="uid://cwjh5kudqlsnw" path="res://Resources/SceneBuilder.tres" id="2_fxykp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ejjb41kquy3p" path="res://Scenes/Objects/Portal.tscn" id="4_vye4c"]
 [ext_resource type="Script" path="res://Scripts/Player/CameraController.gd" id="5_5j1ap"]
 [ext_resource type="PackedScene" uid="uid://dyop00txa4gcj" path="res://Scenes/Objects/Interactable.tscn" id="5_ut4jm"]
+[ext_resource type="Script" path="res://Scripts/Rooms/RoomArea.gd" id="7_qoutf"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_r0cb8"]
 vertices = PackedVector3Array(-21.1404, 4.08685, -23.2524, -2.64036, 3.83685, -23.2524, -22.3904, 3.83685, -23.5024, -22.1404, 4.33685, -6.00237, -21.1404, 4.33685, -6.25237, -21.1404, 4.08685, -23.2524, -22.3904, 3.83685, -23.5024, -22.3487, 4.58685, -20.5857, 0.859636, 0.586853, -3.00237, 2.10964, 0.586853, -2.25237, 3.35964, 0.586853, -3.25237, 2.10964, 0.586853, -5.00237, -0.890364, 0.586853, -3.00237, 0.859636, 0.586853, -3.00237, 2.10964, 0.586853, -5.00237, -3.64036, 0.836853, -3.25237, -2.14036, 0.586853, -2.25237, -0.890364, 0.586853, -3.00237, -1.89036, 0.586853, -5.50237, 2.10964, 0.836853, -22.2524, 1.60964, 0.586853, -22.5024, -1.64036, 0.586853, -23.2524, -1.89036, 0.586853, -5.50237, -0.890364, 0.586853, -3.00237, 2.10964, 0.586853, -5.00237, 1.60964, 0.586853, -22.5024, 1.60964, 0.586853, -23.2524, -1.64036, 0.586853, -23.2524, 21.1096, 3.58685, -22.2524, 21.6096, 3.58685, -3.00237, 21.6096, 3.58685, -22.5024, -13.6404, 7.83685, -14.2524, -13.1404, 7.83685, -14.2524, -12.3904, 7.83685, -15.5024, -13.6404, 7.83685, -16.0024, 11.6096, 8.58685, -11.0024, 11.6096, 8.33685, -10.0024, 13.3596, 8.33685, -10.5024, -2.14036, 0.586853, -2.25237, -3.64036, 0.836853, -3.25237, -4.39036, 0.586853, -2.25237, -2.89036, 0.586853, -0.752365, -2.89036, 0.586853, 0.747635, -2.89036, 0.586853, -0.752365, -4.39036, 0.586853, -2.25237, -20.8904, 0.586853, -2.25237, -20.8904, 0.586853, 2.24763, -4.39036, 0.586853, 2.24763, -4.39036, 0.586853, 2.24763, -3.64036, 0.836853, 3.24763, -2.14036, 0.586853, 2.24763, -2.89036, 0.586853, 0.747635, 2.10964, 0.586853, 2.24763, 3.60964, 0.836853, 3.24763, 4.35964, 0.586853, 2.24763, 2.85964, 0.586853, 0.747635, 2.85964, 0.586853, -0.752365, 2.85964, 0.586853, 0.747635, 4.35964, 0.586853, 2.24763, 20.6096, 0.586853, 2.24763, 20.8596, 0.586853, -2.00237, 4.35964, 0.586853, -2.25237, 4.35964, 0.586853, -2.25237, 3.35964, 0.586853, -3.25237, 2.10964, 0.586853, -2.25237, 2.85964, 0.586853, -0.752365, 0.609636, 2.33685, -1.75237, 0.609636, 2.33685, -1.25237, 1.60964, 2.33685, -0.752365, 0.609636, 2.33685, 1.49763, -0.890364, 2.33685, 1.49763, 0.359636, 2.33685, 1.99763, 1.60964, 2.33685, 0.997635, 1.10964, 2.33685, 0.747635, 0.609636, 2.33685, 1.49763, 0.359636, 2.33685, 1.99763, 3.60964, 0.836853, 3.24763, 2.10964, 0.586853, 2.24763, 0.859636, 0.586853, 2.99763, 2.10964, 0.586853, 5.24763, 0.859636, 0.586853, 2.99763, -0.890364, 0.586853, 2.99763, -1.89036, 0.586853, 5.49763, -1.89036, 0.586853, 22.9976, 2.10964, 0.836853, 22.9976, 2.10964, 0.586853, 5.24763, -0.890364, 0.586853, 2.99763, -2.14036, 0.586853, 2.24763, -3.64036, 0.836853, 3.24763, -1.89036, 0.586853, 5.49763, 21.3596, 3.58685, 20.2476, 21.8596, 3.58685, 22.4976, 21.8596, 3.58685, 7.49763, 21.3596, 3.58685, 2.99763, -22.3904, 4.33685, 22.7476, -21.1404, 4.33685, 22.7476, -21.3904, 4.33685, 5.99763, -22.3904, 4.33685, 5.99763, -16.8904, 7.33685, 17.7476, -15.3904, 7.83685, 18.2476, -15.3904, 7.83685, 17.2476, -16.8904, 7.33685, 17.2476)
@@ -15,14 +16,24 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(6, 5, 7), PackedInt32Arr
 [sub_resource type="BoxShape3D" id="BoxShape3D_po021"]
 size = Vector3(43, 1, 47)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_b254u"]
+size = Vector3(17.6549, 3.15527, 5.81649)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rktkr"]
+size = Vector3(4.88147, 3.15527, 20.2838)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bagw7"]
+size = Vector3(19.2843, 3.15527, 5.81649)
+
 [node name="Yard" type="Node3D"]
 script = ExtResource("1_im1yx")
 scene_builder = ExtResource("2_fxykp")
 
 [node name="Objects" type="Node3D" parent="."]
 
-[node name="Key" parent="Objects" instance=ExtResource("3_x18na")]
+[node name="Tool Box" parent="Objects" instance=ExtResource("3_x18na")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.577431, 8)
+type = 2
 
 [node name="Farmstead" parent="Objects" instance=ExtResource("4_vye4c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.8337, 0.666037, 0)
@@ -41,9 +52,65 @@ navigation_mesh = SubResource("NavigationMesh_r0cb8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.215216, 0)
 shape = SubResource("BoxShape3D_po021")
 
-[node name="CameraController" type="Camera3D" parent="."]
-transform = Transform3D(-1.64015e-08, 0.926935, -0.375222, 4.05176e-08, 0.375222, 0.926935, 1, 3.01981e-14, -4.37114e-08, -14.6891, 21.8583, 0.273884)
-script = ExtResource("5_5j1ap")
+[node name="Room1" type="Node3D" parent="Navigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2367, 0, 0)
+
+[node name="Area2" type="Area3D" parent="Navigation/Room1" node_paths=PackedStringArray("room_camera_pos_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.411215, 0, -7.82676)
+script = ExtResource("7_qoutf")
+room_camera_pos_node = NodePath("../CameraPos")
+
+[node name="Shape" type="CollisionShape3D" parent="Navigation/Room1/Area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.36524, 1.07764, 7.62805)
+shape = SubResource("BoxShape3D_b254u")
+
+[node name="CameraPos" type="Node3D" parent="Navigation/Room1"]
+transform = Transform3D(-1.64015e-08, 0.926935, -0.375222, 4.05176e-08, 0.375222, 0.926935, 1, 3.01981e-14, -4.37114e-08, 0.403785, 13.2963, 0.273884)
+
+[node name="Room2" type="Node3D" parent="Navigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.5792)
+
+[node name="Area3" type="Area3D" parent="Navigation/Room2" node_paths=PackedStringArray("room_camera_pos_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.411215, 0, -32.5286)
+script = ExtResource("7_qoutf")
+room_camera_pos_node = NodePath("../CameraPos")
+
+[node name="Shape" type="CollisionShape3D" parent="Navigation/Room2/Area3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25637, 1.07764, 13.6391)
+shape = SubResource("BoxShape3D_rktkr")
+
+[node name="CameraPos" type="Node3D" parent="Navigation/Room2"]
+transform = Transform3D(-2.97765e-08, 0.732091, -0.681207, 3.20007e-08, 0.681207, 0.732091, 1, 7.10543e-15, -4.37114e-08, -2.92818, 10.7822, -24.4383)
+
+[node name="Room3" type="Node3D" parent="Navigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4947, 0, 0)
+
+[node name="Area2" type="Area3D" parent="Navigation/Room3" node_paths=PackedStringArray("room_camera_pos_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.411215, 0, -7.82676)
+script = ExtResource("7_qoutf")
+room_camera_pos_node = NodePath("../CameraPos")
+
+[node name="Shape" type="CollisionShape3D" parent="Navigation/Room3/Area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40327, 1.07764, 7.62805)
+shape = SubResource("BoxShape3D_bagw7")
+
+[node name="CameraPos" type="Node3D" parent="Navigation/Room3"]
+transform = Transform3D(-1.64015e-08, 0.926935, -0.375222, 4.05176e-08, 0.375222, 0.926935, 1, 2.97244e-14, -4.37114e-08, -7.88828, 12.6479, 0.801231)
+
+[node name="Room4" type="Node3D" parent="Navigation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.5792)
+
+[node name="Area3" type="Area3D" parent="Navigation/Room4" node_paths=PackedStringArray("room_camera_pos_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.411215, 0, -60.4902)
+script = ExtResource("7_qoutf")
+room_camera_pos_node = NodePath("../CameraPos")
+
+[node name="Shape" type="CollisionShape3D" parent="Navigation/Room4/Area3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25637, 1.07764, 15.4156)
+shape = SubResource("BoxShape3D_rktkr")
+
+[node name="CameraPos" type="Node3D" parent="Navigation/Room4"]
+transform = Transform3D(-2.97765e-08, 0.732091, -0.681207, 3.20007e-08, 0.681207, 0.732091, 1, 7.10543e-15, -4.37114e-08, -2.92818, 10.7822, -39.8638)
 
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 18, 0)
@@ -51,3 +118,12 @@ light_energy = 3.0
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1, 0)
+
+[node name="CameraController" type="Camera3D" parent="."]
+transform = Transform3D(-1.64015e-08, 0.926935, -0.375222, 4.05176e-08, 0.375222, 0.926935, 1, 2.84217e-14, -4.37114e-08, -15.8329, 13.2963, 0.273884)
+script = ExtResource("5_5j1ap")
+
+[connection signal="body_entered" from="Navigation/Room1/Area2" to="Navigation/Room1/Area2" method="_on_body_entered"]
+[connection signal="body_entered" from="Navigation/Room2/Area3" to="Navigation/Room2/Area3" method="_on_body_entered"]
+[connection signal="body_entered" from="Navigation/Room3/Area2" to="Navigation/Room3/Area2" method="_on_body_entered"]
+[connection signal="body_entered" from="Navigation/Room4/Area3" to="Navigation/Room4/Area3" method="_on_body_entered"]

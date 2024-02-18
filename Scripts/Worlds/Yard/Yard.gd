@@ -19,14 +19,11 @@ func connect_objects_signals():
 		if object.has_signal("picked"):
 			object.picked.connect(_on_object_picked)
 
-
 func connect_scene_builder_signals():
 	scene_builder.list_changed.connect(_on_scene_builder_list_changed)
 
-
 func _on_object_picked(obj_name:String):
 	scene_builder.remove_object("Yard", obj_name)
-
 
 func _on_scene_builder_list_changed():
 	update_objects()

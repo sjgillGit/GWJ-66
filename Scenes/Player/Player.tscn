@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://blnork1vhf7o4"]
+[gd_scene load_steps=68 format=3 uid="uid://blnork1vhf7o4"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qtn2k"]
 [ext_resource type="Script" path="res://Scripts/Player/MovementController.gd" id="1_rmcqe"]
@@ -6608,11 +6608,29 @@ _data = {
 "remove_ball_chain": SubResource("Animation_yqq33")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gc4xo"]
+animation = &"pick_up_type2"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_odsgc"]
 animation = &"Idle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jjkrk"]
+animation = &"pick_up_type1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ryt4"]
+animation = &"Sheep_threat"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8cn73"]
 animation = &"Walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xrod7"]
+animation = &"Walking_withkey"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uviw4"]
+animation = &"keyholding_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1sqa8"]
+animation = &"Idle_loop"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fb8ug"]
 advance_mode = 2
@@ -6625,15 +6643,122 @@ advance_condition = &"Walking"
 advance_mode = 2
 advance_condition = &"Idle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dbu0r"]
+advance_mode = 2
+advance_condition = &"Pickup"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_35y4b"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_22i1r"]
+advance_mode = 2
+advance_condition = &"Pickup"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w13s7"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4tkv7"]
+advance_mode = 2
+advance_condition = &"PickupDown"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7iso5"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_temsn"]
+advance_mode = 2
+advance_condition = &"PickupDown"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ffh6x"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pn4jj"]
+advance_mode = 2
+advance_condition = &"Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vof56"]
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dcbuh"]
+advance_mode = 2
+advance_condition = &"KeyWalk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6pmm6"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"KeyIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s4nda"]
+advance_mode = 2
+advance_condition = &"Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t0obi"]
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wixmy"]
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6dma4"]
+advance_mode = 2
+advance_condition = &"Knife"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uqvbi"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ma46j"]
+advance_mode = 2
+advance_condition = &"Knife"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bboun"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0skt0"]
+advance_mode = 2
+advance_condition = &"Sleep"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qndxl"]
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mttob"]
+advance_mode = 2
+advance_condition = &"Walking"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vwxmg"]
 states/End/position = Vector2(1088, 90)
+states/GroundPickup/node = SubResource("AnimationNodeAnimation_gc4xo")
+states/GroundPickup/position = Vector2(-122, 491)
 states/Idle/node = SubResource("AnimationNodeAnimation_odsgc")
-states/Idle/position = Vector2(-342, 285)
-states/Start/position = Vector2(-481, 285)
+states/Idle/position = Vector2(-455, 383)
+states/ShelfPickup/node = SubResource("AnimationNodeAnimation_jjkrk")
+states/ShelfPickup/position = Vector2(-198, 110)
+states/Start/position = Vector2(-540, 319)
+states/UseKnife/node = SubResource("AnimationNodeAnimation_4ryt4")
+states/UseKnife/position = Vector2(222, 90)
 states/Walk/node = SubResource("AnimationNodeAnimation_8cn73")
-states/Walk/position = Vector2(-207, 285)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fb8ug"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_6gurp"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_43a11")]
-graph_offset = Vector2(-581, 155)
+states/Walk/position = Vector2(-455, 257)
+states/Walking_withkey/node = SubResource("AnimationNodeAnimation_xrod7")
+states/Walking_withkey/position = Vector2(210, 357)
+states/keyholding_idle/node = SubResource("AnimationNodeAnimation_uviw4")
+states/keyholding_idle/position = Vector2(210, 444)
+states/sleep/node = SubResource("AnimationNodeAnimation_1sqa8")
+states/sleep/position = Vector2(209.222, 189.667)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fb8ug"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_6gurp"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_43a11"), "Walk", "ShelfPickup", SubResource("AnimationNodeStateMachineTransition_dbu0r"), "ShelfPickup", "Walk", SubResource("AnimationNodeStateMachineTransition_35y4b"), "Idle", "ShelfPickup", SubResource("AnimationNodeStateMachineTransition_22i1r"), "ShelfPickup", "Idle", SubResource("AnimationNodeStateMachineTransition_w13s7"), "Idle", "GroundPickup", SubResource("AnimationNodeStateMachineTransition_4tkv7"), "GroundPickup", "Idle", SubResource("AnimationNodeStateMachineTransition_7iso5"), "Walk", "GroundPickup", SubResource("AnimationNodeStateMachineTransition_temsn"), "GroundPickup", "Walk", SubResource("AnimationNodeStateMachineTransition_ffh6x"), "Walking_withkey", "Walk", SubResource("AnimationNodeStateMachineTransition_pn4jj"), "Walking_withkey", "keyholding_idle", SubResource("AnimationNodeStateMachineTransition_vof56"), "keyholding_idle", "Walking_withkey", SubResource("AnimationNodeStateMachineTransition_dcbuh"), "GroundPickup", "keyholding_idle", SubResource("AnimationNodeStateMachineTransition_6pmm6"), "keyholding_idle", "Walk", SubResource("AnimationNodeStateMachineTransition_s4nda"), "keyholding_idle", "Idle", SubResource("AnimationNodeStateMachineTransition_t0obi"), "Walking_withkey", "Idle", SubResource("AnimationNodeStateMachineTransition_wixmy"), "Walk", "UseKnife", SubResource("AnimationNodeStateMachineTransition_6dma4"), "UseKnife", "Walk", SubResource("AnimationNodeStateMachineTransition_uqvbi"), "Idle", "UseKnife", SubResource("AnimationNodeStateMachineTransition_ma46j"), "UseKnife", "Idle", SubResource("AnimationNodeStateMachineTransition_bboun"), "Idle", "sleep", SubResource("AnimationNodeStateMachineTransition_0skt0"), "sleep", "Idle", SubResource("AnimationNodeStateMachineTransition_qndxl"), "sleep", "Walk", SubResource("AnimationNodeStateMachineTransition_mttob")]
+graph_offset = Vector2(-592.954, -91.9135)
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00672, 0)
@@ -7122,4 +7247,10 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_vwxmg")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/Idle = false
+parameters/conditions/KeyIdle = false
+parameters/conditions/KeyWalk = false
+parameters/conditions/Knife = false
+parameters/conditions/Pickup = false
+parameters/conditions/PickupDown = false
+parameters/conditions/Sleep = false
 parameters/conditions/Walking = false
